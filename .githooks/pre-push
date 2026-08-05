@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+repo_root="$(git rev-parse --show-toplevel)"
+cd "$repo_root"
+
+"$repo_root/scripts/check-commit-safety.sh" --history
+
+zero_sha="0000000000000000000000000000000000000000"
+protected_ref="refs/heads/${PROTECTED_BRANCH:-main}"
+blocked=0
+
+while read -r local_ref local_sha remote_ref remote_sha; do
+  if [[ "$remote_ref" == "$protected_ref" && "${ALLOW_PROTECTED_BRANCH_PUSH:-0}" != "1" ]]; then
+    printf 'ERROR: direct pushes to %s are blocked. Push a feature branch and open a PR.\n' \
+      "$protected_ref" >&2
+    blocked=1
+  fi
+
+  if [[ "$local_sha" != "$zero_sha" && "$remote_sha" != "$zero_sha" ]] && \
+     ! git merge-base --is-ancestor "$remote_sha" "$local_sha"; then
+    printf 'ERROR: non-fast-forward/force push blocked for %s.\n' "$remote_ref" >&2
+    blocked=1
+  fi
+done
+
+if (( blocked != 0 )); then
+  printf 'Push blocked by project safety policy. Do not bypass the hook.\n' >&2
+  exit 1
+fi
+
+printf 'Push safety checks passed.\n'

@@ -141,3 +141,45 @@ dist
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 .vite/
+
+# macOS and editor-local files
+.DS_Store
+**/.DS_Store
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+
+# Local Cursor / MCP configuration can contain credentials
+.cursor/mcp.json
+.mcp.json
+
+# Supabase local state and generated artifacts
+.supabase/
+supabase/.branches/
+supabase/.temp/
+
+# Local databases and data exports
+*.db
+*.db-journal
+*.sqlite
+*.sqlite3
+*.dump
+*.sql.gz
+
+# Private keys, certificates, and credential bundles
+*.pem
+*.p12
+*.pfx
+*.jks
+*.keystore
+id_rsa
+id_ed25519
+credentials.json
+credentials.*.json
+service-account*.json
+
+# Security scan output
+gitleaks-report.*
+security-report.*
