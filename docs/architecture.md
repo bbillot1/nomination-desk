@@ -44,6 +44,18 @@ flowchart LR
   post notices, or deliver messages.
 - Staging guards compare model payloads against the active scenario's deterministic answer key.
 
+### Skills and playbooks
+
+- Runtime skills are versioned rows in the Supabase `skills` table and are loaded at the start of
+  each specialist run.
+- `Scheduling` loads Derate Response and Capacity Shortfall; `Exception` loads Derate Response;
+  `Communications` loads Shipper Communication.
+- The Markdown files under `/skills` are expanded operator-readable references. Migration
+  `0005_seed_skills.sql` contains the runtime-optimized skill bodies with the corresponding IDs and
+  versions.
+- Every event records the skill ID and version used, preserving the operating-procedure context
+  behind a decision.
+
 ### Postgres
 
 - `agent_events` is append-only.
@@ -98,4 +110,7 @@ Subscribing before the fetch and deduplicating afterward prevents gaps and doubl
   strips Supabase values at compile time, and cannot perform remote writes or model calls.
 
 Production would add SSO, role-based approval limits, server-side rate limits, immutable audit
-export, real source-system adapters, and shadow-mode evaluation before any autonomy expansion.
+export, MCP-based source-system adapters, and shadow-mode evaluation before any autonomy
+expansion. The tool layer already uses MCP-shaped contracts — structured definitions, typed
+results, no side channels — so production integration replaces the simulated Postgres modules
+behind the same agent-facing interface.

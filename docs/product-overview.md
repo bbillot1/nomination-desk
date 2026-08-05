@@ -59,13 +59,15 @@ operator a gapless record across the approval boundary.
 - all data, companies, tariffs, and events are synthetic
 - one corridor, one active scenario, and one scheduler identity
 - no application authentication; public distribution uses disconnected replay
-- source integrations are simulated Postgres modules rather than external adapters
+- source integrations are simulated Postgres modules behind MCP-shaped tool contracts rather
+  than external MCP adapters
 - projected exposure is operational decision support, not settlement or an assessed penalty
 
 ## Production path
 
-Replace simulated modules with contract-tested SCADA, EBB, operations-SOR, and ETRM adapters; add
-SSO/RBAC and approval limits; run in shadow mode; evaluate against a golden scenario set; and
+Replace simulated modules with contract-tested MCP adapters for SCADA, EBB, operations-SOR, and
+ETRM. Add SSO/RBAC and approval limits; run in shadow mode; evaluate against a golden scenario
+set; and
 promote autonomy only for scenario classes that meet agreement, safety, and rejection-rate
 thresholds.
 

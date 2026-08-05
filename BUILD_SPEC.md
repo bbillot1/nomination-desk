@@ -153,9 +153,8 @@ prompt plus a restricted tool subset the supervisor delegates to.
 | **Exception** | Flow-order compliance: imbalance, exposure, ranking | historian, ebb (read), quorum, imbalance/exposure engines |
 | **Communications** | Drafting the EBB notice and per-shipper notifications | quorum (read), `draft_ebb_notice`, `draft_shipper_message` |
 
-Roadmap agents (documented in `/skills`, not wired in this phase): Intake (unstructured
-nomination requests — see `skills/nomination-intake.md`), Confirmation (mismatch handling —
-see `skills/confirmation-mismatch.md`), Forecasting, Compliance/Regulatory.
+Roadmap agents (not implemented in the current scope): Intake (unstructured nomination
+requests), Confirmation (mismatch handling), Forecasting, and Compliance/Regulatory.
 
 ---
 
@@ -171,9 +170,7 @@ nomination-desk/
 ├── skills/
 │   ├── derate-response.md          ← hero flow: recut + compliance + comms
 │   ├── capacity-shortfall.md       ← allocation mechanics (used by Scheduling)
-│   ├── shipper-communication.md    ← used by Communications
-│   ├── nomination-intake.md        ← roadmap
-│   └── confirmation-mismatch.md    ← roadmap
+│   └── shipper-communication.md    ← used by Communications
 ├── supabase/
 │   ├── migrations/
 │   │   ├── 0001_schema.sql
@@ -880,10 +877,11 @@ Every message is a draft pending approval. Every figure traces to an engine outp
 Every rule cites its tariff row.
 ```
 
-### Roadmap skills (unchanged, not wired this phase)
+### Roadmap agent concepts (not wired)
 
-`skills/nomination-intake.md` and `skills/confirmation-mismatch.md` are retained verbatim
-from v2 of this spec as documentation of the next two agents.
+Intake and Confirmation remain roadmap concepts rather than runtime agents or skill files.
+Adding either requires an explicit objective, restricted tool subset, versioned playbook,
+scenario-specific evaluations, and the same human-approval boundaries as the current agents.
 
 ---
 
