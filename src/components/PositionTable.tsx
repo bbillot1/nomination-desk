@@ -35,7 +35,7 @@ export function PositionTable({ positions }: PositionTableProps) {
             <h2 className="text-sm font-semibold text-white">Shipper positions</h2>
           </div>
           <p className="mt-1 text-xs text-[#789087]">
-            Operations SOR schedule with deterministic run-rate exposure
+            Nominated = requested · Scheduled = approved plan · Projected = measured-flow run rate
           </p>
         </div>
         <div className="hidden items-center gap-2 sm:flex">
@@ -54,7 +54,7 @@ export function PositionTable({ positions }: PositionTableProps) {
                 "Shipper / service",
                 "Nominated",
                 "Scheduled",
-                "Projected",
+                "Projected flow",
                 "Variance",
                 "Tolerance",
                 "Potential exposure",
@@ -172,7 +172,8 @@ export function PositionTable({ positions }: PositionTableProps) {
 
       <footer className="flex flex-wrap items-center justify-between gap-3 border-t border-[#263b35] bg-[#091310]/55 px-4 py-3">
         <p className="text-[10px] text-[#71877f]">
-          Projected exposure appears only after the approved recut changes the authoritative schedule.
+          Exposure uses active synthetic notice terms and is projected decision support, not an
+          assessed penalty.
         </p>
         <div className="flex items-center gap-3">
           <span className="text-[10px] font-semibold tracking-wide text-[#80968e] uppercase">

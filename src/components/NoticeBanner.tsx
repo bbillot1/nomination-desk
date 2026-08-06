@@ -63,7 +63,12 @@ export function NoticeBanner({ notice }: NoticeBannerProps) {
             </div>
           </div>
           <div>
-            <span className="eyebrow">Potential rate</span>
+            <span
+              className="eyebrow"
+              title="Synthetic scenario tariff value; not a commodity market price"
+            >
+              Synthetic tariff rate
+            </span>
             <div className="mono mt-1 text-[11px] font-semibold text-[#c9d8d3]">
               {formatMoneyCents(notice.penalty_rate_cents_dth)}/Dth
             </div>

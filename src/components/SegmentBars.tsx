@@ -118,7 +118,7 @@ export function SegmentBars({ segments }: SegmentBarsProps) {
                 <span className={segment.headroomDth < 0 ? "text-rose-300" : "text-[#8ca39a]"}>
                   {segment.headroomDth < 0 && <TriangleAlert size={10} className="mr-1 inline" />}
                   <span className="mono">{formatDth(Math.abs(segment.headroomDth))}</span>{" "}
-                  {segment.headroomDth < 0 ? "over" : "headroom"}
+                  {segment.headroomDth < 0 ? "over capacity" : "available capacity"}
                 </span>
               </div>
             </article>

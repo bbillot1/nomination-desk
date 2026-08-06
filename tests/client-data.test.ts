@@ -183,6 +183,36 @@ describe("Phase 4 position derivation", () => {
       exposureCents: 150_000_000,
     });
   });
+
+  it("matches the engine's symmetric tolerance for projected under-delivery", () => {
+    const [positionView] = buildPositionViews({
+      nominations: [nomination()],
+      shippers: [shipper()],
+      contracts: [contract()],
+      flows: Array.from({ length: 6 }, (_, flow_hour) => ({
+        flow_hour,
+        shipper_id: "LSPP",
+        volume_dth: 9_375,
+      })),
+      noticeTerms: { tolerancePct: 5, penaltyRateCentsDth: 2_500 },
+      actions: [
+        allocationAction("executed", [{
+          nomination_id: "NOM-LSPP",
+          scheduled_dth: 250_000,
+          cut_dth: 0,
+        }]),
+      ],
+    });
+
+    expect(positionView).toMatchObject({
+      projectedDth: 225_000,
+      varianceDth: -25_000,
+      toleranceDth: 12_500,
+      excessDth: 12_500,
+      exposureCents: 31_250_000,
+      status: "at_risk",
+    });
+  });
 });
 
 describe("Phase 4 segment derivation", () => {

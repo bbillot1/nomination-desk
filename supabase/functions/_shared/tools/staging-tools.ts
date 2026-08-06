@@ -220,10 +220,14 @@ const draftEbbNotice: ToolHandler = async (input, context) => {
       "draft notice must not claim line-pack headroom or that an unposted order is in effect",
     );
   }
-  if (!noticeBody.includes("effective upon posting") || !notice.body_text.includes("19:00 CT")) {
+  if (
+    !noticeBody.includes("effective upon posting") ||
+    !noticeBody.includes("available transportation capacity") ||
+    !notice.body_text.includes("19:00 CT")
+  ) {
     throw new ToolFailure(
       "INVALID_NOTICE_LANGUAGE",
-      "draft notice must state effective upon posting and the exact 19:00 CT deadline",
+      "draft notice must state available transportation capacity, effective upon posting, and the exact 19:00 CT deadline",
     );
   }
   if (

@@ -136,7 +136,9 @@ export function buildPositionViews(input: {
       const scheduledDth = nomination.scheduled_dth ?? 0;
       const varianceDth = projectedDth === null ? null : projectedDth - scheduledDth;
       const toleranceDth = Math.trunc((scheduledDth * toleranceBps) / 10_000);
-      const excessDth = varianceDth === null ? null : Math.max(0, varianceDth - toleranceDth);
+      const excessDth = varianceDth === null
+        ? null
+        : Math.max(0, Math.abs(varianceDth) - toleranceDth);
       const exposureCents = assessmentActive && excessDth !== null
         ? excessDth * input.noticeTerms.penaltyRateCentsDth
         : null;

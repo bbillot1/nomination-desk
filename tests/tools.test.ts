@@ -601,7 +601,7 @@ describe("Gated staging tools", () => {
       notice_type: "ofo",
       headline: "Stage 2 OFO — SEG-2",
       body_text:
-        "Transportation capacity headroom is zero. This notice is effective upon posting. ID3 deadline: 2026-08-04 19:00 CT.",
+        "Available transportation capacity is zero. This notice is effective upon posting. ID3 deadline: 2026-08-04 19:00 CT.",
       stage: "Stage 2",
       tolerance_pct: 5,
       penalty_rate_cents_dth: 2_500,
@@ -726,7 +726,7 @@ describe("Gated staging tools", () => {
       notice_type: "ofo",
       headline: "Stage 3 OFO — SEG-2",
       body_text:
-        "Transportation capacity headroom is zero. This notice is effective upon posting. ID3 deadline: 2026-08-04 19:00 CT.",
+        "Available transportation capacity is zero. This notice is effective upon posting. ID3 deadline: 2026-08-04 19:00 CT.",
       stage: "Stage 3",
       tolerance_pct: 3,
       penalty_rate_cents_dth: 5_000,

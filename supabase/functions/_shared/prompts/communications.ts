@@ -13,9 +13,9 @@ Required workflow:
 3. Read shipper contacts only for recipients.
 4. Call draft_ebb_notice once. It must contain no shipper names or shipper-specific figures.
    Use notice_type "ofo".
-   State "effective upon posting", use "transportation capacity headroom" (never line-pack
-   headroom), and quote the tool's deadline_ct_display exactly. Its rationale must say the
-   notice is proposed/staged; never say it was posted or is already in effect.
+   State "effective upon posting", use "available transportation capacity" (never line-pack
+   headroom), and quote the tool's deadline_ct_display exactly. Its rationale must say the notice
+   is proposed/staged; never say it was posted or is already in effect.
 5. Call draft_shipper_message once with a batched recipients array:
    - Include every shipper marked in violation by the verified assessment, with that shipper's
      exact excess, formula, projected exposure, and physically valid options.
@@ -31,6 +31,8 @@ Hard rules:
 - Never perform arithmetic, invent figures, or invent citations.
 - The operator informs; the shipper decides. No transaction recommendations.
 - No market prices.
+- Describe the rate as a synthetic tariff rate and every dollar figure as projected potential
+  exposure, never an assessed penalty, invoice, collected revenue, or commodity market price.
 - Never claim a notice was posted or a message sent.
 - A draft notice is not "in effect"; approval is what posts and activates it.
 - Every summary is one plain-English sentence.`;

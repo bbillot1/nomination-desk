@@ -36,11 +36,12 @@ Build in the phase order of §13. The order is chosen so a partial build still r
 
 ## 1. Problem context
 
-Natural gas pipeline scheduling runs on fixed FERC/NAESB nomination deadlines — Timely,
-Evening, and three intraday cycles — every day of the year. The **operator's** gas control and
-commercial scheduling desk receives nominations from shippers, confirms them with connecting
-parties, allocates constrained capacity under tariff priority, monitors physical flows against
-schedule, and issues operational notices when system integrity requires it.
+Natural gas pipeline scheduling follows pipeline-specific tariff deadlines and standard
+NAESB-style nomination cycles — Timely, Evening, and three intraday cycles — every day of the
+year. The **operator's** gas control and commercial scheduling desk receives nominations from
+shippers, confirms them with connecting parties, allocates constrained capacity under tariff
+priority, monitors physical flows against schedule, and issues operational notices when system
+integrity requires it.
 
 Three structural weaknesses in the manual process:
 
