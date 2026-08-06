@@ -3,6 +3,7 @@ import {
   type PriorityRank,
   type ScheduledNomination,
 } from "./engines.ts";
+import { centralTimeDisplay } from "../time.ts";
 import { loadTopology, segments_traversed, type SegmentRow } from "./quorum.ts";
 import {
   asJson,
@@ -175,20 +176,6 @@ async function nominationsForGasDay(
       cycle_deadline_ct: cycle.deadline_ct,
     };
   });
-}
-
-function centralTimeDisplay(instant: number): string {
-  const parts = new Intl.DateTimeFormat("en-US", {
-    timeZone: "America/Chicago",
-    year: "numeric",
-    month: "2-digit",
-    day: "2-digit",
-    hour: "2-digit",
-    minute: "2-digit",
-    hourCycle: "h23",
-  }).formatToParts(new Date(instant));
-  const part = (type: string) => parts.find((candidate) => candidate.type === type)?.value ?? "";
-  return `${part("year")}-${part("month")}-${part("day")} ${part("hour")}:${part("minute")} CT`;
 }
 
 const getNominations: ToolHandler = async (input, context) => {

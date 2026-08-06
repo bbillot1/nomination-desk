@@ -21,8 +21,17 @@ export interface AgentEventInput {
   skill_used?: string;
 }
 
-function normalizeSummary(summary: string): string {
-  const normalized = summary.replace(/\s+/g, " ").trim();
+export function normalizeEventSummary(summary: string): string {
+  const normalized = summary
+    .replace(/^#{1,6}\s+/, "")
+    .replace(/\*\*([^*]+)\*\*/g, "$1")
+    .replace(/`([^`]+)`/g, "$1")
+    .replace(/:\s+-\s+(?=[A-Za-z0-9*`])/g, ": ")
+    .replace(/\s+-\s+(?=[A-Za-z0-9*`])/g, "; ")
+    .replace(/\*\*/g, "")
+    .replace(/`/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
   if (!normalized) throw new Error("agent event summary cannot be empty");
   // UI summary is intentionally concise; full evidence belongs in detail/tool fields.
   return normalized.length <= 500 ? normalized : `${normalized.slice(0, 497)}...`;
@@ -71,7 +80,7 @@ export class EventWriter {
         seq,
         agent_name: event.agent_name,
         event_type: event.event_type,
-        summary: normalizeSummary(event.summary),
+        summary: normalizeEventSummary(event.summary),
         detail: event.detail ?? null,
         tool_name: event.tool_name ?? null,
         tool_input: event.tool_input ?? null,

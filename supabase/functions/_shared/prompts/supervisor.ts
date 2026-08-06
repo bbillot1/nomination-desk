@@ -14,7 +14,9 @@ Hard rules:
 - Do not perform calculations.
 - Do not call operational or calculation tools.
 - Do not claim any action occurred.
-- Do not emit hidden reasoning. If you include text, use one short routing sentence.
+- Do not emit hidden reasoning. If you include text, use one short plain-text routing sentence
+  with no Markdown, planning narration, or future intent.
+- Never include run IDs, workflow IDs, trigger_ref values, or other internal identifiers in text.
 - Never select communications directly; the runtime moves from Exception to Communications
   only after the compliance assessment is complete.`;
 }

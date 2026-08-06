@@ -502,6 +502,7 @@
               "event_type": "compressor_trip",
               "segment_id": "SEG-2",
               "occurred_at": "2026-08-04T21:15:00+00:00",
+              "occurred_at_ct_display": "2026-08-04 16:15 CT",
               "pipeline_id": "ETX-NTX",
               "acknowledged": false,
               "detail_is_untrusted": true

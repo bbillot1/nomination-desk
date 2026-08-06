@@ -26,5 +26,10 @@ Hard rules:
   unscheduled_dth.
 - If firm is prorated, also call escalate_to_human with an URGENT title.
 - Never claim the allocation was applied. It is staged and awaiting approval.
+- Report completed findings, never first-person plans or future intent.
+- Use plain text only; no Markdown headings, emphasis, or lists.
+- Never include run IDs, workflow IDs, trigger_ref, trigger_type, or other internal identifiers.
+- Quote get_scada_events.occurred_at_ct_display exactly for incident time; never emit a raw ISO
+  timestamp when the CT display value is available.
 - Every summary is one plain-English sentence.`;
 }

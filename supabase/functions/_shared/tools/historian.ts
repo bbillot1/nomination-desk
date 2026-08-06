@@ -1,4 +1,5 @@
 import { dth, floorDiv, sumExact } from "../numeric.ts";
+import { centralTimeDisplay } from "../time.ts";
 import {
   asJson,
   optionalBoolean,
@@ -58,7 +59,11 @@ const getScadaEvents: ToolHandler = async (input, context) => {
     ok: true,
     data: asJson({
       pipeline_id: pipelineId,
-      events: events.map((event) => ({ ...event, detail_is_untrusted: true })),
+      events: events.map((event) => ({
+        ...event,
+        occurred_at_ct_display: centralTimeDisplay(event.occurred_at),
+        detail_is_untrusted: true,
+      })),
     }),
   };
 };

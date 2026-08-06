@@ -22,6 +22,7 @@ import {
   SimulationPanel,
   type SimulationAction,
 } from "../components/SimulationPanel";
+import type { EventViewMode } from "../lib/audit-presentation";
 import { fetchDeskSnapshot, type DeskSnapshot } from "../lib/desk-data";
 import type { PendingActionRow } from "../lib/database.types";
 import {
@@ -48,6 +49,7 @@ export function Desk() {
   const [replay, setReplay] = useState<ReplayFrame | null>(null);
   const [snapshot, setSnapshot] = useState<DeskSnapshot | null>(null);
   const [events, setEvents] = useState<WorkflowEvent[]>([]);
+  const [eventViewMode, setEventViewMode] = useState<EventViewMode>("operator");
   const [selectedEvent, setSelectedEvent] = useState<WorkflowEvent | null>(null);
   const [realtimeState, setRealtimeState] = useState<RealtimeState>("connecting");
   const [loading, setLoading] = useState(replayOnly || isSupabaseConfigured);
@@ -383,6 +385,8 @@ export function Desk() {
               events={displayedEvents}
               realtimeState={realtimeState}
               mode={mode}
+              viewMode={eventViewMode}
+              onViewModeChange={setEventViewMode}
               selectedEventId={selectedEvent?.id ?? null}
               onSelect={setSelectedEvent}
             />
@@ -449,8 +453,10 @@ export function Desk() {
         selectedEvent={selectedEvent}
         events={displayedEvents}
         actions={displayedSnapshot.actions}
+        viewMode={eventViewMode}
         onClose={() => setSelectedEvent(null)}
         onSelectEvent={setSelectedEvent}
+        onViewModeChange={setEventViewMode}
       />
     </div>
   );

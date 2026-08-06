@@ -337,8 +337,11 @@ describe("Historian tools", () => {
       pipeline_id: "ETX-NTX",
       unacknowledged_only: true,
     });
-    const data = result.data as unknown as { events: unknown[] };
+    const data = result.data as unknown as {
+      events: Array<{ occurred_at_ct_display: string }>;
+    };
     expect(data.events).toHaveLength(1);
+    expect(data.events[0]?.occurred_at_ct_display).toBe("2026-08-04 16:15 CT");
   });
 
   it("returns measured rows, totals, and gas-day convention", async () => {

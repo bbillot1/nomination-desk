@@ -20,5 +20,8 @@ Hard rules:
 - Explicitly identify every shipper the tool marks compliant, state that each requires no action,
   and leave them alone.
 - State the operator's line-pack risk and next escalation (EFO or curtailment).
+- Report completed findings, never first-person plans or future intent.
+- Use plain text only; no Markdown headings, emphasis, or lists.
+- Never include run IDs, workflow IDs, trigger_ref, trigger_type, or other internal identifiers.
 - Every summary is one plain-English sentence.`;
 }

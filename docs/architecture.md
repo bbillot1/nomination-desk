@@ -92,6 +92,21 @@ sequenceDiagram
   P->>DB: post + deliver + resolved
 ```
 
+## Operator and technical audit views
+
+The desk presents one append-only event stream in two modes. The underlying rows, dispute export,
+and raw tool payloads are unchanged.
+
+- **Operator** hides first-person planning prose, groups adjacent tool call/result pairs into one
+  evidence step, renders summaries without exposing Markdown artifacts, converts ISO timestamps to
+  Central Time, strips internal run/trigger identifiers from displayed text, and surfaces key
+  capacity, allocation, compliance, and approval facts above raw JSON.
+- **Technical** preserves every event, including planning narration and full provider/tool detail,
+  for engineering review.
+
+Persisted summaries are normalized to plain text at write time. Specialist prompts forbid Markdown,
+planning narration, and internal identifiers in new model-authored summaries.
+
 ## Realtime recovery
 
 The audit unit is `workflow_id`, not an individual run. The client:

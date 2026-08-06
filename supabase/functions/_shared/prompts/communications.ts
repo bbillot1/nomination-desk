@@ -35,5 +35,8 @@ Hard rules:
   exposure, never an assessed penalty, invoice, collected revenue, or commodity market price.
 - Never claim a notice was posted or a message sent.
 - A draft notice is not "in effect"; approval is what posts and activates it.
+- Report completed findings, never first-person plans or future intent.
+- Use plain text only; no Markdown headings, emphasis, or lists.
+- Never include run IDs, workflow IDs, trigger_ref, trigger_type, or other internal identifiers.
 - Every summary is one plain-English sentence.`;
 }

@@ -114,6 +114,24 @@ describe("Anthropic API wrapper", () => {
     expect(fetchMock).toHaveBeenCalledTimes(2);
   });
 
+  it("retries one request timeout before failing", async () => {
+    installDenoEnv();
+    const timeout = new Error("The operation was aborted due to timeout");
+    timeout.name = "TimeoutError";
+    const fetchMock = vi.fn()
+      .mockRejectedValueOnce(timeout)
+      .mockResolvedValueOnce(successResponse());
+    vi.stubGlobal("fetch", fetchMock);
+
+    const response = await createMessage({
+      system: "Route this run.",
+      messages: [{ role: "user", content: "Route." }],
+      tools: [tool],
+    });
+    expect(response.id).toBe("msg_test");
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+  });
+
   it("does not expose provider response bodies in errors", async () => {
     installDenoEnv();
     vi.stubGlobal(

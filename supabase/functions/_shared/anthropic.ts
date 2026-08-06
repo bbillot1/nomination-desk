@@ -98,18 +98,18 @@ export async function createMessage(options: {
           "x-api-key": requiredEnv("ANTHROPIC_API_KEY"),
         },
         body: JSON.stringify(payload),
-        signal: AbortSignal.timeout(35_000),
+        // Cold strict-tool schema compilation can exceed 35s; keep under the 100s run budget.
+        signal: AbortSignal.timeout(50_000),
       });
     } catch (error) {
-      if (
-        error instanceof Error &&
-        (error.name === "TimeoutError" || error.name === "AbortError")
-      ) {
-        throw new AnthropicApiError("Anthropic request timed out", 0, true);
-      }
+      const timedOut = error instanceof Error &&
+        (error.name === "TimeoutError" || error.name === "AbortError");
       if (attempt === 0) {
         await sleep(1_000);
         continue;
+      }
+      if (timedOut) {
+        throw new AnthropicApiError("Anthropic request timed out", 0, true);
       }
       throw new AnthropicApiError(
         error instanceof Error ? error.message : "Anthropic request failed",

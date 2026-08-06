@@ -77,13 +77,17 @@ Verify:
 
 ## 6. Inspect audit evidence
 
-Open the exposure decision in the agent feed. The audit drawer must contain:
+Open the exposure decision in the agent feed. Keep **Operator** view selected for the walkthrough;
+switch to **Technical** only if a reviewer asks for raw tool payloads or provider detail.
 
-- both correlated runs
-- ordered tool calls and deterministic results
+The audit drawer must contain:
+
+- both correlated runs under one workflow
+- operator-readable evidence steps (tool noise collapsed; planning prose hidden)
+- key capacity, allocation, compliance, and exposure facts above raw JSON
 - tariff citations and loaded playbooks
 - human decision records
-- dispute-file export
+- dispute-file export (unchanged raw event payload)
 
 The complete chain demonstrates the operating model: agents route, investigate, and draft; engines
 calculate; humans authorize; the operations SOR and append-only audit remain authoritative.
