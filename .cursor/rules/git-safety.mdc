@@ -1,0 +1,17 @@
+---
+description: Mandatory Git, secret, and repository safety policy
+alwaysApply: true
+---
+
+# Repository Safety
+
+- Never commit, push, merge, tag, publish, or change GitHub state unless the user explicitly requests that exact action.
+- Before every commit, inspect `git status`, staged and unstaged diffs, and recent commit style. Run `scripts/check-commit-safety.sh --staged`.
+- Never bypass hooks (`--no-verify`), force push, hard reset, force-clean, or rewrite published history.
+- Work on feature branches. Never push directly to `main`; use a pull request.
+- Stage only reviewed paths. Do not use `git add .`, `git add -A`, or force-add ignored files.
+- Never commit `.env*` (except templates), MCP config, credentials, private keys, database dumps, local Supabase state, generated reports, or large artifacts.
+- Anthropic keys and Supabase secret/service-role keys are server-only. Never expose them through `VITE_*`, browser code, logs, fixtures, screenshots, prompts, or agent events.
+- If a real secret is exposed, stop. Revoke/rotate it first, preserve evidence privately, and ask before any history rewrite.
+- Treat `BUILD_SPEC.md` as the frozen source of truth. Do not modify it unless the user explicitly requests a specification change.
+- When a safety check blocks an action, fix the cause. Never weaken, delete, or bypass the safeguard to make the action pass.

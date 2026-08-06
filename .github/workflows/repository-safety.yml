@@ -1,0 +1,85 @@
+name: Repository safety
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: repository-safety-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  security:
+    name: Secrets and repository policy
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Check out full history
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Validate safety scripts and configuration
+        run: |
+          bash -n scripts/check-commit-safety.sh
+          bash -n scripts/check-working-tree-safety.sh
+          bash -n scripts/install-git-hooks.sh
+          bash -n scripts/test-safety-guards.sh
+          bash -n .githooks/pre-commit
+          bash -n .githooks/pre-push
+          bash -n .cursor/hooks/git-command-guard.sh
+          jq empty .cursor/hooks.json
+
+      - name: Enforce tracked-file policy
+        env:
+          SKIP_GITLEAKS: "1"
+        run: scripts/check-commit-safety.sh --tracked
+
+      - name: Scan complete Git history for secrets
+        uses: gitleaks/gitleaks-action@ff98106e4c7b2bc287b24eaf42907196329070c7
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  phase-one-gate:
+    name: Engine tests and type safety
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+
+      - name: Set up Node.js
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install locked dependencies
+        run: npm ci
+
+      - name: Run deterministic engine gate
+        run: npm test
+
+      - name: Run strict TypeScript checks
+        run: npm run typecheck
+
+      - name: Build production client
+        run: npm run build
+
+      - name: Build disconnected replay client
+        run: npm run build:replay
+
+      - name: Verify replay contains no project linkage
+        run: npm run verify:replay
+
+      - name: Audit dependencies
+        run: npm audit --audit-level=high

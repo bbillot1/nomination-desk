@@ -1,0 +1,1964 @@
+{
+  "schema_version": 1,
+  "label": "Verified hero workflow",
+  "captured_at": "2026-08-05T16:18:47.683Z",
+  "source_workflow_id": "c6f9fec9-88ae-42bd-b46f-9f0ac95ab3ac",
+  "snapshot": {
+    "scenario": {
+      "id": 1,
+      "seed": "hero",
+      "gas_day": "2026-08-04",
+      "sim_clock_ct": "2026-08-04T21:30:00+00:00",
+      "phase": "resolved",
+      "params": {
+        "notice": {
+          "stage": "Stage 2",
+          "tolerance_pct": 5,
+          "penalty_rate_cents_dth": 2500
+        },
+        "incident_time_ct": "16:15",
+        "flow_deviation_bps": {
+          "ABCL": 700,
+          "CEMK": 0,
+          "LSPP": 1500,
+          "NTGU": -100,
+          "SABT": -140
+        },
+        "it_nominations_dth": {
+          "CEMK": 150000,
+          "SABT": 100000
+        },
+        "derated_capacity_dth": 820000
+      },
+      "answer_key": {
+        "recut": {
+          "cuts_dth": {
+            "CEMK": 48000,
+            "SABT": 32000
+          },
+          "scheduled_dth": {
+            "CEMK": 54000,
+            "SABT": 36000
+          },
+          "proration_factor": "0.3600"
+        },
+        "timely": {
+          "scheduled_dth": {
+            "CEMK": 102000,
+            "SABT": 68000
+          },
+          "proration_factor": "0.6800"
+        },
+        "compliant": [
+          "NTGU",
+          "CEMK",
+          "SABT"
+        ],
+        "violators": [
+          "LSPP",
+          "ABCL"
+        ],
+        "exposure_cents": {
+          "ABCL": 15000000,
+          "CEMK": 0,
+          "LSPP": 62500000,
+          "NTGU": 0,
+          "SABT": 0
+        }
+      },
+      "created_at": "2026-08-04T07:08:22.686415+00:00",
+      "updated_at": "2026-08-05T16:08:57.30488+00:00"
+    },
+    "positions": [
+      {
+        "nominationId": "NOM-TIMELY-ABCL",
+        "shipperId": "ABCL",
+        "shipperName": "Abilene Compute LLC",
+        "shipperType": "data_center",
+        "serviceType": "FT",
+        "priorityRank": 1,
+        "nominatedDth": 300000,
+        "scheduledDth": 300000,
+        "proposedScheduledDth": null,
+        "recutDeltaDth": null,
+        "projectedDth": 321000,
+        "varianceDth": 21000,
+        "toleranceDth": 15000,
+        "excessDth": 6000,
+        "exposureCents": 15000000,
+        "status": "at_risk"
+      },
+      {
+        "nominationId": "NOM-TIMELY-LSPP",
+        "shipperId": "LSPP",
+        "shipperName": "Lone Star Power Partners",
+        "shipperType": "power_gen",
+        "serviceType": "FT",
+        "priorityRank": 1,
+        "nominatedDth": 250000,
+        "scheduledDth": 250000,
+        "proposedScheduledDth": null,
+        "recutDeltaDth": null,
+        "projectedDth": 287500,
+        "varianceDth": 37500,
+        "toleranceDth": 12500,
+        "excessDth": 25000,
+        "exposureCents": 62500000,
+        "status": "at_risk"
+      },
+      {
+        "nominationId": "NOM-TIMELY-NTGU",
+        "shipperId": "NTGU",
+        "shipperName": "North Texas Gas Utility",
+        "shipperType": "ldc",
+        "serviceType": "FT",
+        "priorityRank": 1,
+        "nominatedDth": 180000,
+        "scheduledDth": 180000,
+        "proposedScheduledDth": null,
+        "recutDeltaDth": null,
+        "projectedDth": 178200,
+        "varianceDth": -1800,
+        "toleranceDth": 9000,
+        "excessDth": 0,
+        "exposureCents": 0,
+        "status": "normal"
+      },
+      {
+        "nominationId": "NOM-TIMELY-CEMK",
+        "shipperId": "CEMK",
+        "shipperName": "Cardinal Energy Marketing",
+        "shipperType": "marketer",
+        "serviceType": "IT",
+        "priorityRank": 3,
+        "nominatedDth": 150000,
+        "scheduledDth": 54000,
+        "proposedScheduledDth": null,
+        "recutDeltaDth": -48000,
+        "projectedDth": 54000,
+        "varianceDth": 0,
+        "toleranceDth": 2700,
+        "excessDth": 0,
+        "exposureCents": 0,
+        "status": "cut"
+      },
+      {
+        "nominationId": "NOM-TIMELY-SABT",
+        "shipperId": "SABT",
+        "shipperName": "Sabine Trading Co",
+        "shipperType": "marketer",
+        "serviceType": "IT",
+        "priorityRank": 3,
+        "nominatedDth": 100000,
+        "scheduledDth": 36000,
+        "proposedScheduledDth": null,
+        "recutDeltaDth": -32000,
+        "projectedDth": 35500,
+        "varianceDth": -500,
+        "toleranceDth": 1800,
+        "excessDth": 0,
+        "exposureCents": 0,
+        "status": "cut"
+      }
+    ],
+    "segments": [
+      {
+        "id": "SEG-1",
+        "name": "Waha Hub to Midland Junction",
+        "path": "Waha Hub → Midland Junction",
+        "designCapacityDth": 1200000,
+        "operatingCapacityDth": 1200000,
+        "scheduledDth": 604000,
+        "headroomDth": 596000,
+        "utilizationPct": 50.333333333333336,
+        "isDerated": false,
+        "state": "normal"
+      },
+      {
+        "id": "SEG-2",
+        "name": "Midland Junction to Abilene Junction",
+        "path": "Midland Junction → Abilene Junction",
+        "designCapacityDth": 900000,
+        "operatingCapacityDth": 820000,
+        "scheduledDth": 820000,
+        "headroomDth": 0,
+        "utilizationPct": 100,
+        "isDerated": true,
+        "state": "full"
+      },
+      {
+        "id": "SEG-3",
+        "name": "Abilene Junction to DFW South",
+        "path": "Abilene Junction → DFW South",
+        "designCapacityDth": 1400000,
+        "operatingCapacityDth": 1400000,
+        "scheduledDth": 180000,
+        "headroomDth": 1220000,
+        "utilizationPct": 12.857142857142858,
+        "isDerated": false,
+        "state": "normal"
+      }
+    ],
+    "openCycle": {
+      "id": "CYC-ID3",
+      "pipeline_id": "ETX-NTX",
+      "gas_day": "2026-08-04",
+      "cycle_type": "id3",
+      "deadline_ct": "2026-08-05T00:00:00+00:00",
+      "status": "open"
+    },
+    "cycleMinutesRemaining": 150,
+    "actions": [
+      {
+        "id": "2ee47d70-ff22-4e7c-bd89-ff698eb7be74",
+        "run_id": "33707d1c-c321-4314-b9e0-feb13ae2c178",
+        "action_type": "send_shipper_message",
+        "title": "Send 4 affected-shipper messages",
+        "rationale": "Batched shipper notifications for the two Stage 2 tolerance violators on SEG-2 (LSPP, ABCL) with exposure formulas per GT&C §52.3 (synthetic) and contract-backed/physically-valid cure options only, plus factual cut notices for the two allocation-cut shippers (CEMK, SABT) per the executed apply_allocation record under GT&C §12.6 (synthetic). NTGU is compliant and excluded. All figures trace directly to the compliance assessment and the trusted allocation record; no figures were computed or altered by this agent.",
+        "payload": {
+          "recipients": [
+            {
+              "body": "This message concerns your position on ETX-NTX Segment SEG-2 for gas day 2026-08-04. Scheduled quantity: 250,000 Dth. Projected quantity (run-rate extrapolation over 6 measured hours): 287,500 Dth. Imbalance: +37,500 Dth (+15.0%). Stage 2 tolerance: 5% (12,500 Dth). Excess over tolerance: 25,000 Dth. Exposure formula: 25,000 Dth x $25.00/Dth x 1 day = $625,000.00 (GT&C §52.3 synthetic). The current open cycle is ID3, deadline 2026-08-04 19:00 CT. Your contract CTR-LSPP-FT1 shows storage rights of 40,000 Dth at RP-BETH, which is downstream of SEG-2; you may wish to consider whether your storage rights offer a cure path, alongside any other contract-backed options available to you, ahead of the deadline. This is informational; the decision on how to manage your position is yours.",
+              "subject": "SEG-2 Stage 2 Imbalance — Projected 25,000 Dth Excess, $625,000.00 Exposure",
+              "shipper_id": "LSPP",
+              "evidence_refs": [
+                "assess_flow_order_compliance:LSPP:scheduled_dth=250000",
+                "assess_flow_order_compliance:LSPP:projected_dth=287500",
+                "assess_flow_order_compliance:LSPP:excess_dth=25000",
+                "assess_flow_order_compliance:LSPP:exposure_cents=62500000",
+                "GT&C §52.3 (synthetic)",
+                "get_contract:CTR-LSPP-FT1:storage_rights_dth=40000,storage_point=RP-BETH",
+                "get_open_cycles:CYC-ID3:deadline_ct_display=2026-08-04 19:00 CT"
+              ]
+            },
+            {
+              "body": "This message concerns your position on ETX-NTX Segment SEG-2 for gas day 2026-08-04. Scheduled quantity: 300,000 Dth. Projected quantity (run-rate extrapolation over 6 measured hours): 321,000 Dth. Imbalance: +21,000 Dth (+7.0%). Stage 2 tolerance: 5% (15,000 Dth). Excess over tolerance: 6,000 Dth. Projected potential exposure formula: 6,000 Dth x $25.00/Dth x 1 day = $150,000.00 (GT&C §52.3 synthetic). The current open cycle is ID3, deadline 2026-08-04 19:00 CT. SEG-2 has zero available transportation capacity (820,000 Dth scheduled against 820,000 Dth operating capacity), so any cure path must not rely on increasing supply through SEG-2. Options physically available to you ahead of the deadline include reducing takes at your delivery point(s) or self-supplying downstream of the constraint. This is informational, not an assessed penalty or market-price recommendation; the decision on how to manage your position is yours.",
+              "subject": "SEG-2 Stage 2 Imbalance — Projected 6,000 Dth Excess, $150,000.00 Exposure",
+              "shipper_id": "ABCL",
+              "evidence_refs": [
+                "assess_flow_order_compliance:ABCL:scheduled_dth=300000",
+                "assess_flow_order_compliance:ABCL:projected_dth=321000",
+                "assess_flow_order_compliance:ABCL:excess_dth=6000",
+                "assess_flow_order_compliance:ABCL:exposure_cents=15000000",
+                "GT&C §52.3 (synthetic)",
+                "get_open_cycles:CYC-ID3:deadline_ct_display=2026-08-04 19:00 CT",
+                "system_impact:headroom_dth=0"
+              ]
+            },
+            {
+              "body": "This message concerns the executed allocation on ETX-NTX Segment SEG-2 for gas day 2026-08-04, nomination NOM-TIMELY-CEMK. A cut of 48,000 Dth was applied, reducing your post-recut scheduled quantity to 54,000 Dth. Reason: Tier 3 prorated to available capacity at factor 0.3600, applied under GT&C §12.6 (synthetic) as segment capacity was derated to 820,000 Dth. This cut reflects the current cycle's proration only. A later cycle with restored or additional available capacity on SEG-2 could allow rescheduling of some or all of the cut volume, subject to timely renomination and then-current tariff proration rules.",
+              "subject": "SEG-2 Allocation Notice — Cut Applied, GT&C §12.6",
+              "shipper_id": "CEMK",
+              "evidence_refs": [
+                "apply_allocation:a9c564ba-e4ab-4bbc-90ba-cbfc2f96657b:NOM-TIMELY-CEMK:cut_dth=48000,scheduled_dth=54000",
+                "apply_allocation:proration_factor_str=0.3600",
+                "GT&C §12.6 (synthetic)"
+              ]
+            },
+            {
+              "body": "This message concerns the executed allocation on ETX-NTX Segment SEG-2 for gas day 2026-08-04, nomination NOM-TIMELY-SABT. A cut of 32,000 Dth was applied, reducing your post-recut scheduled quantity to 36,000 Dth. Reason: Tier 3 prorated to available capacity at factor 0.3600, applied under GT&C §12.6 (synthetic) as segment capacity was derated to 820,000 Dth. This cut reflects the current cycle's proration only. A later cycle with restored or additional available capacity on SEG-2 could allow rescheduling of some or all of the cut volume, subject to timely renomination and then-current tariff proration rules.",
+              "subject": "SEG-2 Allocation Notice — Cut Applied, GT&C §12.6",
+              "shipper_id": "SABT",
+              "evidence_refs": [
+                "apply_allocation:a9c564ba-e4ab-4bbc-90ba-cbfc2f96657b:NOM-TIMELY-SABT:cut_dth=32000,scheduled_dth=36000",
+                "apply_allocation:proration_factor_str=0.3600",
+                "GT&C §12.6 (synthetic)"
+              ]
+            }
+          ]
+        },
+        "dollar_impact_cents": 77500000,
+        "status": "executed",
+        "decided_by": "control-room-scheduler",
+        "decided_at": "2026-08-05T16:08:50.576209+00:00",
+        "executed_at": "2026-08-05T16:08:50.576209+00:00",
+        "result": {
+          "decision": "approved",
+          "executed": true,
+          "delivered": true,
+          "recipient_count": 4
+        },
+        "created_at": "2026-08-05T16:07:47.116669+00:00"
+      },
+      {
+        "id": "bebb2019-7651-4f02-8f24-df76404d5c1d",
+        "run_id": "33707d1c-c321-4314-b9e0-feb13ae2c178",
+        "action_type": "post_ebb_notice",
+        "title": "Post Stage 2 EBB notice",
+        "rationale": "This notice is proposed and staged pending approval; it is not posted and not yet in effect. It reflects Stage 2 terms per GT&C §52.3 (synthetic) and the SEG-2 zero-available-capacity condition (820,000 Dth scheduled vs 820,000 Dth operating capacity) evidenced by the compliance assessment for gas day 2026-08-04. No shipper names or shipper-specific figures are included, consistent with EBB notice requirements.",
+        "payload": {
+          "notice_id": "bfa575fa-ee86-48f1-8f83-f3f48c51e4dc"
+        },
+        "dollar_impact_cents": null,
+        "status": "executed",
+        "decided_by": "control-room-scheduler",
+        "decided_at": "2026-08-05T16:08:57.30488+00:00",
+        "executed_at": "2026-08-05T16:08:57.30488+00:00",
+        "result": {
+          "decision": "approved",
+          "executed": true,
+          "notice_id": "bfa575fa-ee86-48f1-8f83-f3f48c51e4dc"
+        },
+        "created_at": "2026-08-05T16:07:46.899708+00:00"
+      },
+      {
+        "id": "a9c564ba-e4ab-4bbc-90ba-cbfc2f96657b",
+        "run_id": "23f423ac-d83c-4e8b-a768-77e0e74942d2",
+        "action_type": "apply_allocation",
+        "title": "Apply SEG-2 derate allocation",
+        "rationale": "Apply tariff-priority recut at 820,000 Dth using factor 0.3600 (GT&C §12.6 (synthetic)).",
+        "payload": {
+          "citation": "GT&C §12.6 (synthetic)",
+          "segment_id": "SEG-2",
+          "allocations": [
+            {
+              "cut_dth": 0,
+              "cut_reason": null,
+              "nomination_id": "NOM-TIMELY-ABCL",
+              "scheduled_dth": 300000
+            },
+            {
+              "cut_dth": 0,
+              "cut_reason": null,
+              "nomination_id": "NOM-TIMELY-LSPP",
+              "scheduled_dth": 250000
+            },
+            {
+              "cut_dth": 0,
+              "cut_reason": null,
+              "nomination_id": "NOM-TIMELY-NTGU",
+              "scheduled_dth": 180000
+            },
+            {
+              "cut_dth": 48000,
+              "cut_reason": "Tier 3 prorated to available capacity at factor 0.3600",
+              "nomination_id": "NOM-TIMELY-CEMK",
+              "scheduled_dth": 54000
+            },
+            {
+              "cut_dth": 32000,
+              "cut_reason": "Tier 3 prorated to available capacity at factor 0.3600",
+              "nomination_id": "NOM-TIMELY-SABT",
+              "scheduled_dth": 36000
+            }
+          ],
+          "derated_capacity_dth": 820000,
+          "proration_factor_str": "0.3600"
+        },
+        "dollar_impact_cents": null,
+        "status": "executed",
+        "decided_by": "control-room-scheduler",
+        "decided_at": "2026-08-05T16:06:45.398975+00:00",
+        "executed_at": "2026-08-05T16:06:45.398975+00:00",
+        "result": {
+          "decision": "approved",
+          "executed": true,
+          "queued_run_id": "33707d1c-c321-4314-b9e0-feb13ae2c178"
+        },
+        "created_at": "2026-08-05T16:06:28.000751+00:00"
+      }
+    ],
+    "latestNotice": {
+      "id": "bfa575fa-ee86-48f1-8f83-f3f48c51e4dc",
+      "pipeline_id": "ETX-NTX",
+      "notice_type": "ofo",
+      "headline": "Proposed Operational Flow Order — SEG-2 Stage 2 Constraint",
+      "body_text": "This is a proposed Operational Flow Order (OFO) for ETX-NTX Segment SEG-2 (Midland Junction to Abilene Junction), effective upon posting. Cause: SEG-2 is scheduled at its derated operating capacity with zero available transportation capacity (820,000 Dth scheduled against 820,000 Dth operating capacity), and projected run-day imbalances indicate uncured over-take risk on the segment. Derated capacity: 820,000 Dth. Stage: Stage 2. Tolerance: 5% of scheduled quantity (GT&C §52.3 synthetic). Imbalance basis: projected gas-day total (run-rate extrapolation) versus scheduled quantity. Synthetic tariff rate: $25.00/Dth (2,500 cents/Dth) on imbalance in excess of tolerance (GT&C §52.3 synthetic). This is projected potential exposure, not an assessed penalty or commodity market price. Actionable cycle: ID3, deadline 2026-08-04 19:00 CT. Shippers with projected imbalances exceeding the Stage 2 tolerance on SEG-2 should review corrective options ahead of this deadline to manage potential exposure under GT&C §52.3 (synthetic).",
+      "stage": "Stage 2",
+      "tolerance_pct": 5,
+      "penalty_rate_cents_dth": 2500,
+      "affected_segment": "SEG-2",
+      "derate_to_dth": 820000,
+      "effective_start": "2026-08-04T21:30:00+00:00",
+      "effective_end": null,
+      "status": "posted",
+      "posted_at": "2026-08-04T21:30:00+00:00",
+      "created_at": "2026-08-05T16:07:46.899708+00:00"
+    },
+    "runs": [
+      {
+        "id": "23f423ac-d83c-4e8b-a768-77e0e74942d2",
+        "workflow_id": "c6f9fec9-88ae-42bd-b46f-9f0ac95ab3ac",
+        "parent_run_id": null,
+        "trigger_type": "scada_event",
+        "trigger_ref": "b34e65b8-143f-44b3-8bf1-d78c77d9f90b",
+        "status": "complete",
+        "gas_day": "2026-08-04",
+        "started_at": "2026-08-05T16:05:48.695418+00:00",
+        "ended_at": "2026-08-05T16:06:45.398975+00:00",
+        "error_text": null
+      },
+      {
+        "id": "33707d1c-c321-4314-b9e0-feb13ae2c178",
+        "workflow_id": "c6f9fec9-88ae-42bd-b46f-9f0ac95ab3ac",
+        "parent_run_id": "23f423ac-d83c-4e8b-a768-77e0e74942d2",
+        "trigger_type": "approval_continuation",
+        "trigger_ref": "a9c564ba-e4ab-4bbc-90ba-cbfc2f96657b",
+        "status": "complete",
+        "gas_day": "2026-08-04",
+        "started_at": "2026-08-05T16:06:45.422+00:00",
+        "ended_at": "2026-08-05T16:08:57.30488+00:00",
+        "error_text": null
+      }
+    ],
+    "latestScadaEvent": {
+      "id": "b34e65b8-143f-44b3-8bf1-d78c77d9f90b",
+      "pipeline_id": "ETX-NTX",
+      "event_type": "compressor_trip",
+      "asset": "Midland Station Unit 2",
+      "segment_id": "SEG-2",
+      "detail": {
+        "derated_capacity_dth": 820000
+      },
+      "occurred_at": "2026-08-04T21:15:00+00:00",
+      "acknowledged": false
+    },
+    "workflowId": "c6f9fec9-88ae-42bd-b46f-9f0ac95ab3ac",
+    "hasRunningWork": false
+  },
+  "events": [
+    {
+      "id": 422,
+      "run_id": "23f423ac-d83c-4e8b-a768-77e0e74942d2",
+      "workflow_id": "c6f9fec9-88ae-42bd-b46f-9f0ac95ab3ac",
+      "seq": 1,
+      "agent_name": "supervisor",
+      "event_type": "decision",
+      "summary": "Supervisor routed the scada_event run to scheduling.",
+      "detail": {
+        "reason": "trigger_type scada_event routes to scheduling per routing table.",
+        "specialist": "scheduling",
+        "trigger_type": "scada_event"
+      },
+      "tool_name": "delegate_to_specialist",
+      "tool_input": {
+        "reason": "trigger_type scada_event routes to scheduling per routing table.",
+        "specialist": "scheduling"
+      },
+      "tool_output": null,
+      "citation": null,
+      "skill_used": null,
+      "created_at": "2026-08-05T16:05:55.192059+00:00",
+      "run_started_at": "2026-08-05T16:05:48.695418+00:00"
+    },
+    {
+      "id": 423,
+      "run_id": "23f423ac-d83c-4e8b-a768-77e0e74942d2",
+      "workflow_id": "c6f9fec9-88ae-42bd-b46f-9f0ac95ab3ac",
+      "seq": 2,
+      "agent_name": "scheduling",
+      "event_type": "analysis_summary",
+      "summary": "I'll start by reading the SCADA event and the segment/cycle state in parallel since these are independent reads.",
+      "detail": null,
+      "tool_name": null,
+      "tool_input": null,
+      "tool_output": null,
+      "citation": null,
+      "skill_used": "derate-response@2.0,capacity-shortfall@1.3",
+      "created_at": "2026-08-05T16:05:59.250138+00:00",
+      "run_started_at": "2026-08-05T16:05:48.695418+00:00"
+    },
+    {
+      "id": 424,
+      "run_id": "23f423ac-d83c-4e8b-a768-77e0e74942d2",
+      "workflow_id": "c6f9fec9-88ae-42bd-b46f-9f0ac95ab3ac",
+      "seq": 3,
+      "agent_name": "scheduling",
+      "event_type": "tool_call",
+      "summary": "scheduling called get_scada_events.",
+      "detail": null,
+      "tool_name": "get_scada_events",
+      "tool_input": {
+        "pipeline_id": "ETX-NTX",
+        "unacknowledged_only": true
+      },
+      "tool_output": null,
+      "citation": null,
+      "skill_used": "derate-response@2.0,capacity-shortfall@1.3",
+      "created_at": "2026-08-05T16:05:59.504055+00:00",
+      "run_started_at": "2026-08-05T16:05:48.695418+00:00"
+    },
+    {
+      "id": 425,
+      "run_id": "23f423ac-d83c-4e8b-a768-77e0e74942d2",
+      "workflow_id": "c6f9fec9-88ae-42bd-b46f-9f0ac95ab3ac",
+      "seq": 4,
+      "agent_name": "scheduling",
+      "event_type": "tool_result",
+      "summary": "get_scada_events completed successfully.",
+      "detail": null,
+      "tool_name": "get_scada_events",
+      "tool_input": null,
+      "tool_output": {
+        "ok": true,
+        "data": {
+          "events": [
+            {
+              "id": "b34e65b8-143f-44b3-8bf1-d78c77d9f90b",
+              "asset": "Midland Station Unit 2",
+              "detail": {
+                "derated_capacity_dth": 820000
+              },
+              "event_type": "compressor_trip",
+              "segment_id": "SEG-2",
+              "occurred_at": "2026-08-04T21:15:00+00:00",
+              "occurred_at_ct_display": "2026-08-04 16:15 CT",
+              "pipeline_id": "ETX-NTX",
+              "acknowledged": false,
+              "detail_is_untrusted": true
+            }
+          ],
+          "pipeline_id": "ETX-NTX"
+        }
+      },
+      "citation": null,
+      "skill_used": "derate-response@2.0,capacity-shortfall@1.3",
+      "created_at": "2026-08-05T16:05:59.616327+00:00",
+      "run_started_at": "2026-08-05T16:05:48.695418+00:00"
+    },
+    {
+      "id": 426,
+      "run_id": "23f423ac-d83c-4e8b-a768-77e0e74942d2",
+      "workflow_id": "c6f9fec9-88ae-42bd-b46f-9f0ac95ab3ac",
+      "seq": 5,
+      "agent_name": "scheduling",
+      "event_type": "tool_call",
+      "summary": "scheduling called get_segment_state.",
+      "detail": null,
+      "tool_name": "get_segment_state",
+      "tool_input": {
+        "segment_id": "SEG-2"
+      },
+      "tool_output": null,
+      "citation": null,
+      "skill_used": "derate-response@2.0,capacity-shortfall@1.3",
+      "created_at": "2026-08-05T16:05:59.675742+00:00",
+      "run_started_at": "2026-08-05T16:05:48.695418+00:00"
+    },
+    {
+      "id": 427,
+      "run_id": "23f423ac-d83c-4e8b-a768-77e0e74942d2",
+      "workflow_id": "c6f9fec9-88ae-42bd-b46f-9f0ac95ab3ac",
+      "seq": 6,
+      "agent_name": "scheduling",
+      "event_type": "tool_result",
+      "summary": "get_segment_state completed successfully.",
+      "detail": null,
+      "tool_name": "get_segment_state",
+      "tool_input": null,
+      "tool_output": {
+        "ok": true,
+        "data": {
+          "gas_day": "2026-08-04",
+          "segment": {
+            "id": "SEG-2",
+            "seq": 2,
+            "name": "Midland Junction to Abilene Junction",
+            "to_point": "JCT-ABIL",
+            "from_point": "RP-MIDL",
+            "pipeline_id": "ETX-NTX",
+            "design_capacity_dth": 900000,
+            "operating_capacity_dth": 820000
+          },
+          "headroom_dth": -80000,
+          "shortfall_dth": 80000,
+          "scheduled_by_tier": {
+            "1": 730000,
+            "2": 0,
+            "3": 170000
+          },
+          "scheduled_total_dth": 900000,
+          "operating_capacity_dth": 820000,
+          "traversing_nominations": [
+            {
+              "shipper_id": "ABCL",
+              "nomination_id": "NOM-TIMELY-ABCL",
+              "priority_rank": 1,
+              "scheduled_dth": 300000
+            },
+            {
+              "shipper_id": "LSPP",
+              "nomination_id": "NOM-TIMELY-LSPP",
+              "priority_rank": 1,
+              "scheduled_dth": 250000
+            },
+            {
+              "shipper_id": "NTGU",
+              "nomination_id": "NOM-TIMELY-NTGU",
+              "priority_rank": 1,
+              "scheduled_dth": 180000
+            },
+            {
+              "shipper_id": "CEMK",
+              "nomination_id": "NOM-TIMELY-CEMK",
+              "priority_rank": 3,
+              "scheduled_dth": 102000
+            },
+            {
+              "shipper_id": "SABT",
+              "nomination_id": "NOM-TIMELY-SABT",
+              "priority_rank": 3,
+              "scheduled_dth": 68000
+            }
+          ]
+        }
+      },
+      "citation": null,
+      "skill_used": "derate-response@2.0,capacity-shortfall@1.3",
+      "created_at": "2026-08-05T16:06:00.350087+00:00",
+      "run_started_at": "2026-08-05T16:05:48.695418+00:00"
+    },
+    {
+      "id": 428,
+      "run_id": "23f423ac-d83c-4e8b-a768-77e0e74942d2",
+      "workflow_id": "c6f9fec9-88ae-42bd-b46f-9f0ac95ab3ac",
+      "seq": 7,
+      "agent_name": "scheduling",
+      "event_type": "tool_call",
+      "summary": "scheduling called get_open_cycles.",
+      "detail": null,
+      "tool_name": "get_open_cycles",
+      "tool_input": {
+        "gas_day": "2026-08-04"
+      },
+      "tool_output": null,
+      "citation": null,
+      "skill_used": "derate-response@2.0,capacity-shortfall@1.3",
+      "created_at": "2026-08-05T16:06:00.404244+00:00",
+      "run_started_at": "2026-08-05T16:05:48.695418+00:00"
+    },
+    {
+      "id": 429,
+      "run_id": "23f423ac-d83c-4e8b-a768-77e0e74942d2",
+      "workflow_id": "c6f9fec9-88ae-42bd-b46f-9f0ac95ab3ac",
+      "seq": 8,
+      "agent_name": "scheduling",
+      "event_type": "tool_result",
+      "summary": "get_open_cycles completed successfully.",
+      "detail": null,
+      "tool_name": "get_open_cycles",
+      "tool_input": null,
+      "tool_output": {
+        "ok": true,
+        "data": {
+          "cycles": [
+            {
+              "id": "CYC-ID3",
+              "status": "open",
+              "gas_day": "2026-08-04",
+              "cycle_type": "id3",
+              "deadline_ct": "2026-08-05T00:00:00+00:00",
+              "pipeline_id": "ETX-NTX",
+              "deadline_ct_display": "2026-08-04 19:00 CT",
+              "sim_minutes_remaining": 150
+            }
+          ],
+          "gas_day": "2026-08-04",
+          "sim_clock_ct": "2026-08-04T21:30:00+00:00"
+        }
+      },
+      "citation": null,
+      "skill_used": "derate-response@2.0,capacity-shortfall@1.3",
+      "created_at": "2026-08-05T16:06:00.580382+00:00",
+      "run_started_at": "2026-08-05T16:05:48.695418+00:00"
+    },
+    {
+      "id": 430,
+      "run_id": "23f423ac-d83c-4e8b-a768-77e0e74942d2",
+      "workflow_id": "c6f9fec9-88ae-42bd-b46f-9f0ac95ab3ac",
+      "seq": 9,
+      "agent_name": "scheduling",
+      "event_type": "analysis_summary",
+      "summary": "Confirmed: compressor trip on Midland Station Unit 2 derated SEG-2 to 820,000 Dth, and per get_segment_state the shortfall is 80,000 Dth (scheduled total 900,000 vs.",
+      "detail": null,
+      "tool_name": null,
+      "tool_input": null,
+      "tool_output": null,
+      "citation": null,
+      "skill_used": "derate-response@2.0,capacity-shortfall@1.3",
+      "created_at": "2026-08-05T16:06:07.120367+00:00",
+      "run_started_at": "2026-08-05T16:05:48.695418+00:00"
+    },
+    {
+      "id": 431,
+      "run_id": "23f423ac-d83c-4e8b-a768-77e0e74942d2",
+      "workflow_id": "c6f9fec9-88ae-42bd-b46f-9f0ac95ab3ac",
+      "seq": 10,
+      "agent_name": "scheduling",
+      "event_type": "tool_call",
+      "summary": "scheduling called get_nominations.",
+      "detail": null,
+      "tool_name": "get_nominations",
+      "tool_input": {
+        "gas_day": "2026-08-04"
+      },
+      "tool_output": null,
+      "citation": null,
+      "skill_used": "derate-response@2.0,capacity-shortfall@1.3",
+      "created_at": "2026-08-05T16:06:07.175725+00:00",
+      "run_started_at": "2026-08-05T16:05:48.695418+00:00"
+    },
+    {
+      "id": 432,
+      "run_id": "23f423ac-d83c-4e8b-a768-77e0e74942d2",
+      "workflow_id": "c6f9fec9-88ae-42bd-b46f-9f0ac95ab3ac",
+      "seq": 11,
+      "agent_name": "scheduling",
+      "event_type": "tool_result",
+      "summary": "get_nominations completed successfully.",
+      "detail": null,
+      "tool_name": "get_nominations",
+      "tool_input": null,
+      "tool_output": {
+        "ok": true,
+        "data": {
+          "gas_day": "2026-08-04",
+          "nominations": [
+            {
+              "id": "NOM-TIMELY-ABCL",
+              "status": "scheduled",
+              "cycle_id": "CYC-TIMELY",
+              "created_at": "2026-08-03T17:30:00+00:00",
+              "cut_reason": null,
+              "cycle_type": "timely",
+              "shipper_id": "ABCL",
+              "contract_id": "CTR-ABCL-FT1",
+              "nominated_dth": 300000,
+              "priority_rank": 1,
+              "receipt_point": "RP-WAHA",
+              "scheduled_dth": 300000,
+              "delivery_point": "DP-ABIL-DC",
+              "cycle_deadline_ct": "2026-08-03T18:00:00+00:00"
+            },
+            {
+              "id": "NOM-TIMELY-LSPP",
+              "status": "scheduled",
+              "cycle_id": "CYC-TIMELY",
+              "created_at": "2026-08-03T17:30:00+00:00",
+              "cut_reason": null,
+              "cycle_type": "timely",
+              "shipper_id": "LSPP",
+              "contract_id": "CTR-LSPP-FT1",
+              "nominated_dth": 250000,
+              "priority_rank": 1,
+              "receipt_point": "RP-WAHA",
+              "scheduled_dth": 250000,
+              "delivery_point": "DP-LSPP-GEN",
+              "cycle_deadline_ct": "2026-08-03T18:00:00+00:00"
+            },
+            {
+              "id": "NOM-TIMELY-NTGU",
+              "status": "scheduled",
+              "cycle_id": "CYC-TIMELY",
+              "created_at": "2026-08-03T17:30:00+00:00",
+              "cut_reason": null,
+              "cycle_type": "timely",
+              "shipper_id": "NTGU",
+              "contract_id": "CTR-NTGU-FT1",
+              "nominated_dth": 180000,
+              "priority_rank": 1,
+              "receipt_point": "RP-MIDL",
+              "scheduled_dth": 180000,
+              "delivery_point": "DP-DFW-LDC",
+              "cycle_deadline_ct": "2026-08-03T18:00:00+00:00"
+            },
+            {
+              "id": "NOM-TIMELY-CEMK",
+              "status": "scheduled",
+              "cycle_id": "CYC-TIMELY",
+              "created_at": "2026-08-03T17:45:00+00:00",
+              "cut_reason": null,
+              "cycle_type": "timely",
+              "shipper_id": "CEMK",
+              "contract_id": "CTR-CEMK-IT1",
+              "nominated_dth": 150000,
+              "priority_rank": 3,
+              "receipt_point": "RP-WAHA",
+              "scheduled_dth": 102000,
+              "delivery_point": "DP-INDL",
+              "cycle_deadline_ct": "2026-08-03T18:00:00+00:00"
+            },
+            {
+              "id": "NOM-TIMELY-SABT",
+              "status": "scheduled",
+              "cycle_id": "CYC-TIMELY",
+              "created_at": "2026-08-03T17:45:00+00:00",
+              "cut_reason": null,
+              "cycle_type": "timely",
+              "shipper_id": "SABT",
+              "contract_id": "CTR-SABT-IT1",
+              "nominated_dth": 100000,
+              "priority_rank": 3,
+              "receipt_point": "RP-MIDL",
+              "scheduled_dth": 68000,
+              "delivery_point": "DP-INDL",
+              "cycle_deadline_ct": "2026-08-03T18:00:00+00:00"
+            }
+          ]
+        }
+      },
+      "citation": null,
+      "skill_used": "derate-response@2.0,capacity-shortfall@1.3",
+      "created_at": "2026-08-05T16:06:07.409536+00:00",
+      "run_started_at": "2026-08-05T16:05:48.695418+00:00"
+    },
+    {
+      "id": 433,
+      "run_id": "23f423ac-d83c-4e8b-a768-77e0e74942d2",
+      "workflow_id": "c6f9fec9-88ae-42bd-b46f-9f0ac95ab3ac",
+      "seq": 12,
+      "agent_name": "scheduling",
+      "event_type": "analysis_summary",
+      "summary": "I now have nominated_dth and previous scheduled_dth for each nomination.",
+      "detail": null,
+      "tool_name": null,
+      "tool_input": null,
+      "tool_output": null,
+      "citation": null,
+      "skill_used": "derate-response@2.0,capacity-shortfall@1.3",
+      "created_at": "2026-08-05T16:06:14.00633+00:00",
+      "run_started_at": "2026-08-05T16:05:48.695418+00:00"
+    },
+    {
+      "id": 434,
+      "run_id": "23f423ac-d83c-4e8b-a768-77e0e74942d2",
+      "workflow_id": "c6f9fec9-88ae-42bd-b46f-9f0ac95ab3ac",
+      "seq": 13,
+      "agent_name": "scheduling",
+      "event_type": "tool_call",
+      "summary": "scheduling called apply_scheduling_priority.",
+      "detail": null,
+      "tool_name": "apply_scheduling_priority",
+      "tool_input": {
+        "nominations": [
+          {
+            "shipper_id": "ABCL",
+            "nominated_dth": 300000,
+            "nomination_id": "NOM-TIMELY-ABCL",
+            "priority_rank": 1,
+            "previous_scheduled_dth": 300000
+          },
+          {
+            "shipper_id": "LSPP",
+            "nominated_dth": 250000,
+            "nomination_id": "NOM-TIMELY-LSPP",
+            "priority_rank": 1,
+            "previous_scheduled_dth": 250000
+          },
+          {
+            "shipper_id": "NTGU",
+            "nominated_dth": 180000,
+            "nomination_id": "NOM-TIMELY-NTGU",
+            "priority_rank": 1,
+            "previous_scheduled_dth": 180000
+          },
+          {
+            "shipper_id": "CEMK",
+            "nominated_dth": 150000,
+            "nomination_id": "NOM-TIMELY-CEMK",
+            "priority_rank": 3,
+            "previous_scheduled_dth": 102000
+          },
+          {
+            "shipper_id": "SABT",
+            "nominated_dth": 100000,
+            "nomination_id": "NOM-TIMELY-SABT",
+            "priority_rank": 3,
+            "previous_scheduled_dth": 68000
+          }
+        ],
+        "pipeline_id": "ETX-NTX",
+        "operating_capacity_dth": 820000
+      },
+      "tool_output": null,
+      "citation": null,
+      "skill_used": "derate-response@2.0,capacity-shortfall@1.3",
+      "created_at": "2026-08-05T16:06:14.078418+00:00",
+      "run_started_at": "2026-08-05T16:05:48.695418+00:00"
+    },
+    {
+      "id": 435,
+      "run_id": "23f423ac-d83c-4e8b-a768-77e0e74942d2",
+      "workflow_id": "c6f9fec9-88ae-42bd-b46f-9f0ac95ab3ac",
+      "seq": 14,
+      "agent_name": "scheduling",
+      "event_type": "tool_result",
+      "summary": "apply_scheduling_priority completed successfully.",
+      "detail": null,
+      "tool_name": "apply_scheduling_priority",
+      "tool_input": null,
+      "tool_output": {
+        "ok": true,
+        "data": {
+          "citation": "GT&C §12.6 (synthetic)",
+          "allocations": [
+            {
+              "cut_dth": 0,
+              "cut_reason": null,
+              "shipper_id": "ABCL",
+              "nominated_dth": 300000,
+              "nomination_id": "NOM-TIMELY-ABCL",
+              "priority_rank": 1,
+              "scheduled_dth": 300000,
+              "unscheduled_dth": 0
+            },
+            {
+              "cut_dth": 0,
+              "cut_reason": null,
+              "shipper_id": "LSPP",
+              "nominated_dth": 250000,
+              "nomination_id": "NOM-TIMELY-LSPP",
+              "priority_rank": 1,
+              "scheduled_dth": 250000,
+              "unscheduled_dth": 0
+            },
+            {
+              "cut_dth": 0,
+              "cut_reason": null,
+              "shipper_id": "NTGU",
+              "nominated_dth": 180000,
+              "nomination_id": "NOM-TIMELY-NTGU",
+              "priority_rank": 1,
+              "scheduled_dth": 180000,
+              "unscheduled_dth": 0
+            },
+            {
+              "cut_dth": 48000,
+              "cut_reason": "Tier 3 prorated to available capacity at factor 0.3600",
+              "shipper_id": "CEMK",
+              "nominated_dth": 150000,
+              "nomination_id": "NOM-TIMELY-CEMK",
+              "priority_rank": 3,
+              "scheduled_dth": 54000,
+              "unscheduled_dth": 96000
+            },
+            {
+              "cut_dth": 32000,
+              "cut_reason": "Tier 3 prorated to available capacity at factor 0.3600",
+              "shipper_id": "SABT",
+              "nominated_dth": 100000,
+              "nomination_id": "NOM-TIMELY-SABT",
+              "priority_rank": 3,
+              "scheduled_dth": 36000,
+              "unscheduled_dth": 64000
+            }
+          ],
+          "tier_totals": [
+            {
+              "rank": 1,
+              "nominated_dth": 730000,
+              "scheduled_dth": 730000
+            },
+            {
+              "rank": 2,
+              "nominated_dth": 0,
+              "scheduled_dth": 0
+            },
+            {
+              "rank": 3,
+              "nominated_dth": 250000,
+              "scheduled_dth": 90000
+            }
+          ],
+          "binding_tier": 3,
+          "firm_prorated": false,
+          "scheduled_total_dth": 820000,
+          "proration_factor_str": "0.3600",
+          "operating_capacity_dth": 820000
+        },
+        "citation": "GT&C §12.6 (synthetic)"
+      },
+      "citation": "GT&C §12.6 (synthetic)",
+      "skill_used": "derate-response@2.0,capacity-shortfall@1.3",
+      "created_at": "2026-08-05T16:06:14.185766+00:00",
+      "run_started_at": "2026-08-05T16:05:48.695418+00:00"
+    },
+    {
+      "id": 436,
+      "run_id": "23f423ac-d83c-4e8b-a768-77e0e74942d2",
+      "workflow_id": "c6f9fec9-88ae-42bd-b46f-9f0ac95ab3ac",
+      "seq": 15,
+      "agent_name": "scheduling",
+      "event_type": "analysis_summary",
+      "summary": "The engine result: firm (tier 1) is fully scheduled, no proration into firm — the derate is absorbed entirely by tier 3 (interruptible) at a proration factor of 0.3600, per cut_dth (change from previously published schedule): - **NOM-TIMELY-ABCL** (ABCL, firm primary): scheduled 300,000, cut 0 - **NOM-TIMELY-LSPP** (LSPP, firm primary): scheduled 250,000, cut 0 - **NOM-TIMELY-NTGU** (NTGU, firm primary): scheduled 180,000, cut 0 - **NOM-TIMELY-CEMK** (CEMK, interruptible): scheduled 54,000 (w...",
+      "detail": null,
+      "tool_name": null,
+      "tool_input": null,
+      "tool_output": null,
+      "citation": null,
+      "skill_used": "derate-response@2.0,capacity-shortfall@1.3",
+      "created_at": "2026-08-05T16:06:24.772752+00:00",
+      "run_started_at": "2026-08-05T16:05:48.695418+00:00"
+    },
+    {
+      "id": 437,
+      "run_id": "23f423ac-d83c-4e8b-a768-77e0e74942d2",
+      "workflow_id": "c6f9fec9-88ae-42bd-b46f-9f0ac95ab3ac",
+      "seq": 16,
+      "agent_name": "scheduling",
+      "event_type": "tool_call",
+      "summary": "scheduling called stage_allocation.",
+      "detail": null,
+      "tool_name": "stage_allocation",
+      "tool_input": {
+        "citation": "GT&C §12.6 (synthetic)",
+        "segment_id": "SEG-2",
+        "allocations": [
+          {
+            "cut_dth": 0,
+            "cut_reason": null,
+            "nomination_id": "NOM-TIMELY-ABCL",
+            "scheduled_dth": 300000
+          },
+          {
+            "cut_dth": 0,
+            "cut_reason": null,
+            "nomination_id": "NOM-TIMELY-LSPP",
+            "scheduled_dth": 250000
+          },
+          {
+            "cut_dth": 0,
+            "cut_reason": null,
+            "nomination_id": "NOM-TIMELY-NTGU",
+            "scheduled_dth": 180000
+          },
+          {
+            "cut_dth": 48000,
+            "cut_reason": "Tier 3 prorated to available capacity at factor 0.3600",
+            "nomination_id": "NOM-TIMELY-CEMK",
+            "scheduled_dth": 54000
+          },
+          {
+            "cut_dth": 32000,
+            "cut_reason": "Tier 3 prorated to available capacity at factor 0.3600",
+            "nomination_id": "NOM-TIMELY-SABT",
+            "scheduled_dth": 36000
+          }
+        ],
+        "derated_capacity_dth": 820000,
+        "proration_factor_str": "0.3600"
+      },
+      "tool_output": null,
+      "citation": null,
+      "skill_used": "derate-response@2.0,capacity-shortfall@1.3",
+      "created_at": "2026-08-05T16:06:27.469939+00:00",
+      "run_started_at": "2026-08-05T16:05:48.695418+00:00"
+    },
+    {
+      "id": 438,
+      "run_id": "23f423ac-d83c-4e8b-a768-77e0e74942d2",
+      "workflow_id": "c6f9fec9-88ae-42bd-b46f-9f0ac95ab3ac",
+      "seq": 17,
+      "agent_name": "scheduling",
+      "event_type": "tool_result",
+      "summary": "stage_allocation completed successfully.",
+      "detail": null,
+      "tool_name": "stage_allocation",
+      "tool_input": null,
+      "tool_output": {
+        "ok": true,
+        "data": {
+          "status": "pending",
+          "payload": {
+            "citation": "GT&C §12.6 (synthetic)",
+            "segment_id": "SEG-2",
+            "allocations": [
+              {
+                "cut_dth": 0,
+                "cut_reason": null,
+                "nomination_id": "NOM-TIMELY-ABCL",
+                "scheduled_dth": 300000
+              },
+              {
+                "cut_dth": 0,
+                "cut_reason": null,
+                "nomination_id": "NOM-TIMELY-LSPP",
+                "scheduled_dth": 250000
+              },
+              {
+                "cut_dth": 0,
+                "cut_reason": null,
+                "nomination_id": "NOM-TIMELY-NTGU",
+                "scheduled_dth": 180000
+              },
+              {
+                "cut_dth": 48000,
+                "cut_reason": "Tier 3 prorated to available capacity at factor 0.3600",
+                "nomination_id": "NOM-TIMELY-CEMK",
+                "scheduled_dth": 54000
+              },
+              {
+                "cut_dth": 32000,
+                "cut_reason": "Tier 3 prorated to available capacity at factor 0.3600",
+                "nomination_id": "NOM-TIMELY-SABT",
+                "scheduled_dth": 36000
+              }
+            ],
+            "derated_capacity_dth": 820000,
+            "proration_factor_str": "0.3600"
+          },
+          "pending_action_id": "a9c564ba-e4ab-4bbc-90ba-cbfc2f96657b"
+        },
+        "citation": "GT&C §12.6 (synthetic)"
+      },
+      "citation": "GT&C §12.6 (synthetic)",
+      "skill_used": "derate-response@2.0,capacity-shortfall@1.3",
+      "created_at": "2026-08-05T16:06:28.053133+00:00",
+      "run_started_at": "2026-08-05T16:05:48.695418+00:00"
+    },
+    {
+      "id": 439,
+      "run_id": "23f423ac-d83c-4e8b-a768-77e0e74942d2",
+      "workflow_id": "c6f9fec9-88ae-42bd-b46f-9f0ac95ab3ac",
+      "seq": 18,
+      "agent_name": "supervisor",
+      "event_type": "decision",
+      "summary": "Human approved and executed the pending action.",
+      "detail": {
+        "decision": "approve",
+        "decided_by": "control-room-scheduler",
+        "action_type": "apply_allocation",
+        "pending_action_id": "a9c564ba-e4ab-4bbc-90ba-cbfc2f96657b"
+      },
+      "tool_name": null,
+      "tool_input": null,
+      "tool_output": null,
+      "citation": null,
+      "skill_used": null,
+      "created_at": "2026-08-05T16:06:45.398975+00:00",
+      "run_started_at": "2026-08-05T16:05:48.695418+00:00"
+    },
+    {
+      "id": 440,
+      "run_id": "33707d1c-c321-4314-b9e0-feb13ae2c178",
+      "workflow_id": "c6f9fec9-88ae-42bd-b46f-9f0ac95ab3ac",
+      "seq": 1,
+      "agent_name": "supervisor",
+      "event_type": "decision",
+      "summary": "Supervisor routed the approval_continuation run to exception.",
+      "detail": {
+        "reason": "trigger_type approval_continuation maps to exception specialist per routing table.",
+        "specialist": "exception",
+        "trigger_type": "approval_continuation"
+      },
+      "tool_name": "delegate_to_specialist",
+      "tool_input": {
+        "reason": "trigger_type approval_continuation maps to exception specialist per routing table.",
+        "specialist": "exception"
+      },
+      "tool_output": null,
+      "citation": null,
+      "skill_used": null,
+      "created_at": "2026-08-05T16:06:48.369059+00:00",
+      "run_started_at": "2026-08-05T16:06:45.422+00:00"
+    },
+    {
+      "id": 441,
+      "run_id": "33707d1c-c321-4314-b9e0-feb13ae2c178",
+      "workflow_id": "c6f9fec9-88ae-42bd-b46f-9f0ac95ab3ac",
+      "seq": 2,
+      "agent_name": "exception",
+      "event_type": "tool_call",
+      "summary": "exception called assess_flow_order_compliance.",
+      "detail": null,
+      "tool_name": "assess_flow_order_compliance",
+      "tool_input": {
+        "segment_id": "SEG-2",
+        "pipeline_id": "ETX-NTX"
+      },
+      "tool_output": null,
+      "citation": null,
+      "skill_used": "derate-response@2.0",
+      "created_at": "2026-08-05T16:06:51.145425+00:00",
+      "run_started_at": "2026-08-05T16:06:45.422+00:00"
+    },
+    {
+      "id": 442,
+      "run_id": "33707d1c-c321-4314-b9e0-feb13ae2c178",
+      "workflow_id": "c6f9fec9-88ae-42bd-b46f-9f0ac95ab3ac",
+      "seq": 3,
+      "agent_name": "exception",
+      "event_type": "tool_result",
+      "summary": "assess_flow_order_compliance completed successfully.",
+      "detail": null,
+      "tool_name": "assess_flow_order_compliance",
+      "tool_input": null,
+      "tool_output": {
+        "ok": true,
+        "data": {
+          "terms": {
+            "stage": "Stage 2",
+            "penalty": {
+              "citation": "GT&C §52.3 (synthetic)",
+              "rule_key": "stage_2_rate_cents_dth",
+              "rate_cents_dth": 2500
+            },
+            "tolerance": {
+              "citation": "GT&C §52.3 (synthetic)",
+              "rule_key": "stage_2_pct",
+              "value_pct": 5
+            },
+            "pipeline_id": "ETX-NTX"
+          },
+          "segment_id": "SEG-2",
+          "assessments": [
+            {
+              "exposure": {
+                "days": 1,
+                "citation": "GT&C §52.3 (synthetic)",
+                "excess_dth": 6000,
+                "exposure_cents": 15000000,
+                "formula_string": "6,000 Dth × $25.00/Dth × 1 day = $150,000.00",
+                "penalty_rate_cents_dth": 2500
+              },
+              "imbalance": {
+                "direction": "over",
+                "excess_dth": 6000,
+                "in_violation": true,
+                "imbalance_dth": 21000,
+                "projected_dth": 321000,
+                "scheduled_dth": 300000,
+                "tolerance_dth": 15000,
+                "imbalance_pct_str": "+7.0%"
+              },
+              "projection": {
+                "method": "run-rate extrapolation over 6 measured hours",
+                "gas_day": "2026-08-04",
+                "shipper_id": "ABCL",
+                "projected_dth": 321000,
+                "measured_hours": 6,
+                "time_convention": "flow_hour 0 begins 09:00 CT on gas_day; flow_hour 23 ends 09:00 CT the following day",
+                "measured_total_dth": 80250,
+                "measured_through_flow_hour": 5
+              },
+              "shipper_id": "ABCL",
+              "scheduled_dth": 300000
+            },
+            {
+              "exposure": {
+                "days": 1,
+                "citation": "GT&C §52.3 (synthetic)",
+                "excess_dth": 25000,
+                "exposure_cents": 62500000,
+                "formula_string": "25,000 Dth × $25.00/Dth × 1 day = $625,000.00",
+                "penalty_rate_cents_dth": 2500
+              },
+              "imbalance": {
+                "direction": "over",
+                "excess_dth": 25000,
+                "in_violation": true,
+                "imbalance_dth": 37500,
+                "projected_dth": 287500,
+                "scheduled_dth": 250000,
+                "tolerance_dth": 12500,
+                "imbalance_pct_str": "+15.0%"
+              },
+              "projection": {
+                "method": "run-rate extrapolation over 6 measured hours",
+                "gas_day": "2026-08-04",
+                "shipper_id": "LSPP",
+                "projected_dth": 287500,
+                "measured_hours": 6,
+                "time_convention": "flow_hour 0 begins 09:00 CT on gas_day; flow_hour 23 ends 09:00 CT the following day",
+                "measured_total_dth": 71875,
+                "measured_through_flow_hour": 5
+              },
+              "shipper_id": "LSPP",
+              "scheduled_dth": 250000
+            },
+            {
+              "exposure": {
+                "days": 1,
+                "citation": "GT&C §52.3 (synthetic)",
+                "excess_dth": 0,
+                "exposure_cents": 0,
+                "formula_string": "0 Dth × $25.00/Dth × 1 day = $0.00",
+                "penalty_rate_cents_dth": 2500
+              },
+              "imbalance": {
+                "direction": "under",
+                "excess_dth": 0,
+                "in_violation": false,
+                "imbalance_dth": -1800,
+                "projected_dth": 178200,
+                "scheduled_dth": 180000,
+                "tolerance_dth": 9000,
+                "imbalance_pct_str": "-1.0%"
+              },
+              "projection": {
+                "method": "run-rate extrapolation over 6 measured hours",
+                "gas_day": "2026-08-04",
+                "shipper_id": "NTGU",
+                "projected_dth": 178200,
+                "measured_hours": 6,
+                "time_convention": "flow_hour 0 begins 09:00 CT on gas_day; flow_hour 23 ends 09:00 CT the following day",
+                "measured_total_dth": 44550,
+                "measured_through_flow_hour": 5
+              },
+              "shipper_id": "NTGU",
+              "scheduled_dth": 180000
+            },
+            {
+              "exposure": {
+                "days": 1,
+                "citation": "GT&C §52.3 (synthetic)",
+                "excess_dth": 0,
+                "exposure_cents": 0,
+                "formula_string": "0 Dth × $25.00/Dth × 1 day = $0.00",
+                "penalty_rate_cents_dth": 2500
+              },
+              "imbalance": {
+                "direction": "balanced",
+                "excess_dth": 0,
+                "in_violation": false,
+                "imbalance_dth": 0,
+                "projected_dth": 54000,
+                "scheduled_dth": 54000,
+                "tolerance_dth": 2700,
+                "imbalance_pct_str": "0.0%"
+              },
+              "projection": {
+                "method": "run-rate extrapolation over 6 measured hours",
+                "gas_day": "2026-08-04",
+                "shipper_id": "CEMK",
+                "projected_dth": 54000,
+                "measured_hours": 6,
+                "time_convention": "flow_hour 0 begins 09:00 CT on gas_day; flow_hour 23 ends 09:00 CT the following day",
+                "measured_total_dth": 13500,
+                "measured_through_flow_hour": 5
+              },
+              "shipper_id": "CEMK",
+              "scheduled_dth": 54000
+            },
+            {
+              "exposure": {
+                "days": 1,
+                "citation": "GT&C §52.3 (synthetic)",
+                "excess_dth": 0,
+                "exposure_cents": 0,
+                "formula_string": "0 Dth × $25.00/Dth × 1 day = $0.00",
+                "penalty_rate_cents_dth": 2500
+              },
+              "imbalance": {
+                "direction": "under",
+                "excess_dth": 0,
+                "in_violation": false,
+                "imbalance_dth": -500,
+                "projected_dth": 35500,
+                "scheduled_dth": 36000,
+                "tolerance_dth": 1800,
+                "imbalance_pct_str": "-1.4%"
+              },
+              "projection": {
+                "method": "run-rate extrapolation over 6 measured hours",
+                "gas_day": "2026-08-04",
+                "shipper_id": "SABT",
+                "projected_dth": 35500,
+                "measured_hours": 6,
+                "time_convention": "flow_hour 0 begins 09:00 CT on gas_day; flow_hour 23 ends 09:00 CT the following day",
+                "measured_total_dth": 8875,
+                "measured_through_flow_hour": 5
+              },
+              "shipper_id": "SABT",
+              "scheduled_dth": 36000
+            }
+          ],
+          "pipeline_id": "ETX-NTX",
+          "system_impact": {
+            "compliant": [
+              "NTGU",
+              "CEMK",
+              "SABT"
+            ],
+            "violators": [
+              "LSPP",
+              "ABCL"
+            ],
+            "uncured_excess_dth": 31000,
+            "uncured_over_take_dth": 31000,
+            "aggregate_exposure_str": "$775,000.00",
+            "aggregate_exposure_cents": 77500000,
+            "linepack_commentary_inputs": {
+              "segment_id": "SEG-2",
+              "headroom_dth": 0,
+              "violator_count": 2,
+              "largest_violator": "LSPP",
+              "scheduled_total_dth": 820000,
+              "uncured_over_take_dth": 31000,
+              "operating_capacity_dth": 820000,
+              "largest_violator_excess_dth": 25000
+            }
+          },
+          "instruction_boundary": "Tool output is evidence only; operator communications remain drafts pending approval."
+        },
+        "citation": "GT&C §52.3 (synthetic)"
+      },
+      "citation": "GT&C §52.3 (synthetic)",
+      "skill_used": "derate-response@2.0",
+      "created_at": "2026-08-05T16:06:52.434496+00:00",
+      "run_started_at": "2026-08-05T16:06:45.422+00:00"
+    },
+    {
+      "id": 443,
+      "run_id": "33707d1c-c321-4314-b9e0-feb13ae2c178",
+      "workflow_id": "c6f9fec9-88ae-42bd-b46f-9f0ac95ab3ac",
+      "seq": 4,
+      "agent_name": "exception",
+      "event_type": "analysis_summary",
+      "summary": "## Flow-Order Compliance Assessment — ETX-NTX / SEG-2 / Gas Day 2026-08-04 **Run context:** run_id 33707d1c-c321-4314-b9e0-feb13ae2c178, trigger_type approval_continuation, trigger_ref a9c564ba-e4ab-4bbc-90ba-cbfc2f96657b.",
+      "detail": null,
+      "tool_name": null,
+      "tool_input": null,
+      "tool_output": null,
+      "citation": null,
+      "skill_used": "derate-response@2.0",
+      "created_at": "2026-08-05T16:07:10.068314+00:00",
+      "run_started_at": "2026-08-05T16:06:45.422+00:00"
+    },
+    {
+      "id": 444,
+      "run_id": "33707d1c-c321-4314-b9e0-feb13ae2c178",
+      "workflow_id": "c6f9fec9-88ae-42bd-b46f-9f0ac95ab3ac",
+      "seq": 5,
+      "agent_name": "communications",
+      "event_type": "tool_call",
+      "summary": "communications called get_proposed_notice_terms.",
+      "detail": null,
+      "tool_name": "get_proposed_notice_terms",
+      "tool_input": {},
+      "tool_output": null,
+      "citation": null,
+      "skill_used": "shipper-communication@1.0",
+      "created_at": "2026-08-05T16:07:14.646751+00:00",
+      "run_started_at": "2026-08-05T16:06:45.422+00:00"
+    },
+    {
+      "id": 445,
+      "run_id": "33707d1c-c321-4314-b9e0-feb13ae2c178",
+      "workflow_id": "c6f9fec9-88ae-42bd-b46f-9f0ac95ab3ac",
+      "seq": 6,
+      "agent_name": "communications",
+      "event_type": "tool_result",
+      "summary": "get_proposed_notice_terms completed successfully.",
+      "detail": null,
+      "tool_name": "get_proposed_notice_terms",
+      "tool_input": null,
+      "tool_output": {
+        "ok": true,
+        "data": {
+          "stage": "Stage 2",
+          "penalty": {
+            "citation": "GT&C §52.3 (synthetic)",
+            "rule_key": "stage_2_rate_cents_dth",
+            "rate_cents_dth": 2500
+          },
+          "tolerance": {
+            "citation": "GT&C §52.3 (synthetic)",
+            "rule_key": "stage_2_pct",
+            "value_pct": 5
+          },
+          "pipeline_id": "ETX-NTX"
+        },
+        "citation": "GT&C §52.3 (synthetic)"
+      },
+      "citation": "GT&C §52.3 (synthetic)",
+      "skill_used": "shipper-communication@1.0",
+      "created_at": "2026-08-05T16:07:14.887629+00:00",
+      "run_started_at": "2026-08-05T16:06:45.422+00:00"
+    },
+    {
+      "id": 446,
+      "run_id": "33707d1c-c321-4314-b9e0-feb13ae2c178",
+      "workflow_id": "c6f9fec9-88ae-42bd-b46f-9f0ac95ab3ac",
+      "seq": 7,
+      "agent_name": "communications",
+      "event_type": "tool_call",
+      "summary": "communications called get_open_cycles.",
+      "detail": null,
+      "tool_name": "get_open_cycles",
+      "tool_input": {
+        "gas_day": "2026-08-04"
+      },
+      "tool_output": null,
+      "citation": null,
+      "skill_used": "shipper-communication@1.0",
+      "created_at": "2026-08-05T16:07:14.935741+00:00",
+      "run_started_at": "2026-08-05T16:06:45.422+00:00"
+    },
+    {
+      "id": 447,
+      "run_id": "33707d1c-c321-4314-b9e0-feb13ae2c178",
+      "workflow_id": "c6f9fec9-88ae-42bd-b46f-9f0ac95ab3ac",
+      "seq": 8,
+      "agent_name": "communications",
+      "event_type": "tool_result",
+      "summary": "get_open_cycles completed successfully.",
+      "detail": null,
+      "tool_name": "get_open_cycles",
+      "tool_input": null,
+      "tool_output": {
+        "ok": true,
+        "data": {
+          "cycles": [
+            {
+              "id": "CYC-ID3",
+              "status": "open",
+              "gas_day": "2026-08-04",
+              "cycle_type": "id3",
+              "deadline_ct": "2026-08-05T00:00:00+00:00",
+              "pipeline_id": "ETX-NTX",
+              "deadline_ct_display": "2026-08-04 19:00 CT",
+              "sim_minutes_remaining": 150
+            }
+          ],
+          "gas_day": "2026-08-04",
+          "sim_clock_ct": "2026-08-04T21:30:00+00:00"
+        }
+      },
+      "citation": null,
+      "skill_used": "shipper-communication@1.0",
+      "created_at": "2026-08-05T16:07:15.092142+00:00",
+      "run_started_at": "2026-08-05T16:06:45.422+00:00"
+    },
+    {
+      "id": 448,
+      "run_id": "33707d1c-c321-4314-b9e0-feb13ae2c178",
+      "workflow_id": "c6f9fec9-88ae-42bd-b46f-9f0ac95ab3ac",
+      "seq": 9,
+      "agent_name": "communications",
+      "event_type": "tool_call",
+      "summary": "communications called get_contract.",
+      "detail": null,
+      "tool_name": "get_contract",
+      "tool_input": {
+        "shipper_id": "LSPP"
+      },
+      "tool_output": null,
+      "citation": null,
+      "skill_used": "shipper-communication@1.0",
+      "created_at": "2026-08-05T16:07:15.142698+00:00",
+      "run_started_at": "2026-08-05T16:06:45.422+00:00"
+    },
+    {
+      "id": 449,
+      "run_id": "33707d1c-c321-4314-b9e0-feb13ae2c178",
+      "workflow_id": "c6f9fec9-88ae-42bd-b46f-9f0ac95ab3ac",
+      "seq": 10,
+      "agent_name": "communications",
+      "event_type": "tool_result",
+      "summary": "get_contract completed successfully.",
+      "detail": null,
+      "tool_name": "get_contract",
+      "tool_input": null,
+      "tool_output": {
+        "ok": true,
+        "data": {
+          "contracts": [
+            {
+              "id": "CTR-LSPP-FT1",
+              "mdq_dth": 250000,
+              "shipper_id": "LSPP",
+              "pipeline_id": "ETX-NTX",
+              "service_type": "FT",
+              "effective_end": "2027-08-04",
+              "storage_point": "RP-BETH",
+              "contract_number": "FT-2024-0117",
+              "effective_start": "2025-08-04",
+              "storage_rights_dth": 40000,
+              "primary_receipt_point": "RP-WAHA",
+              "primary_delivery_point": "DP-LSPP-GEN"
+            }
+          ],
+          "shipper_id": "LSPP"
+        }
+      },
+      "citation": null,
+      "skill_used": "shipper-communication@1.0",
+      "created_at": "2026-08-05T16:07:15.241523+00:00",
+      "run_started_at": "2026-08-05T16:06:45.422+00:00"
+    },
+    {
+      "id": 450,
+      "run_id": "33707d1c-c321-4314-b9e0-feb13ae2c178",
+      "workflow_id": "c6f9fec9-88ae-42bd-b46f-9f0ac95ab3ac",
+      "seq": 11,
+      "agent_name": "communications",
+      "event_type": "tool_call",
+      "summary": "communications called get_network_topology.",
+      "detail": null,
+      "tool_name": "get_network_topology",
+      "tool_input": {
+        "point_id": "RP-BETH",
+        "segment_id": "SEG-2",
+        "pipeline_id": "ETX-NTX"
+      },
+      "tool_output": null,
+      "citation": null,
+      "skill_used": "shipper-communication@1.0",
+      "created_at": "2026-08-05T16:07:15.289052+00:00",
+      "run_started_at": "2026-08-05T16:06:45.422+00:00"
+    },
+    {
+      "id": 451,
+      "run_id": "33707d1c-c321-4314-b9e0-feb13ae2c178",
+      "workflow_id": "c6f9fec9-88ae-42bd-b46f-9f0ac95ab3ac",
+      "seq": 12,
+      "agent_name": "communications",
+      "event_type": "tool_result",
+      "summary": "get_network_topology completed successfully.",
+      "detail": null,
+      "tool_name": "get_network_topology",
+      "tool_input": null,
+      "tool_output": {
+        "ok": true,
+        "data": {
+          "points": [
+            {
+              "id": "RP-WAHA",
+              "name": "Waha Hub",
+              "meter_id": "MTR-WAHA",
+              "point_type": "receipt",
+              "pipeline_id": "ETX-NTX",
+              "corridor_seq": 1
+            },
+            {
+              "id": "RP-MIDL",
+              "name": "Midland Junction",
+              "meter_id": "MTR-MIDL",
+              "point_type": "receipt",
+              "pipeline_id": "ETX-NTX",
+              "corridor_seq": 2
+            },
+            {
+              "id": "DP-ABIL-DC",
+              "name": "Abilene Data Center",
+              "meter_id": "MTR-ABDC",
+              "point_type": "delivery",
+              "pipeline_id": "ETX-NTX",
+              "corridor_seq": 3
+            },
+            {
+              "id": "DP-INDL",
+              "name": "Industrial Tap",
+              "meter_id": "MTR-INDL",
+              "point_type": "delivery",
+              "pipeline_id": "ETX-NTX",
+              "corridor_seq": 3
+            },
+            {
+              "id": "DP-LSPP-GEN",
+              "name": "Lone Star Generating Station",
+              "meter_id": "MTR-LSPP",
+              "point_type": "delivery",
+              "pipeline_id": "ETX-NTX",
+              "corridor_seq": 3
+            },
+            {
+              "id": "JCT-ABIL",
+              "name": "Abilene Junction",
+              "meter_id": null,
+              "point_type": "junction",
+              "pipeline_id": "ETX-NTX",
+              "corridor_seq": 3
+            },
+            {
+              "id": "RP-BETH",
+              "name": "Bethel Storage",
+              "meter_id": "MTR-BETH",
+              "point_type": "storage",
+              "pipeline_id": "ETX-NTX",
+              "corridor_seq": 3
+            },
+            {
+              "id": "DP-DFW-LDC",
+              "name": "DFW City Gate",
+              "meter_id": "MTR-DFWG",
+              "point_type": "delivery",
+              "pipeline_id": "ETX-NTX",
+              "corridor_seq": 4
+            },
+            {
+              "id": "JCT-DFWS",
+              "name": "DFW South",
+              "meter_id": null,
+              "point_type": "junction",
+              "pipeline_id": "ETX-NTX",
+              "corridor_seq": 4
+            }
+          ],
+          "segments": [
+            {
+              "id": "SEG-1",
+              "seq": 1,
+              "name": "Waha Hub to Midland Junction",
+              "to_point": "RP-MIDL",
+              "from_point": "RP-WAHA",
+              "pipeline_id": "ETX-NTX",
+              "design_capacity_dth": 1200000,
+              "downstream_point_ids": [
+                "RP-MIDL",
+                "DP-ABIL-DC",
+                "DP-INDL",
+                "DP-LSPP-GEN",
+                "JCT-ABIL",
+                "RP-BETH",
+                "DP-DFW-LDC",
+                "JCT-DFWS"
+              ],
+              "operating_capacity_dth": 1200000
+            },
+            {
+              "id": "SEG-2",
+              "seq": 2,
+              "name": "Midland Junction to Abilene Junction",
+              "to_point": "JCT-ABIL",
+              "from_point": "RP-MIDL",
+              "pipeline_id": "ETX-NTX",
+              "design_capacity_dth": 900000,
+              "downstream_point_ids": [
+                "DP-ABIL-DC",
+                "DP-INDL",
+                "DP-LSPP-GEN",
+                "JCT-ABIL",
+                "RP-BETH",
+                "DP-DFW-LDC",
+                "JCT-DFWS"
+              ],
+              "operating_capacity_dth": 820000
+            },
+            {
+              "id": "SEG-3",
+              "seq": 3,
+              "name": "Abilene Junction to DFW South",
+              "to_point": "JCT-DFWS",
+              "from_point": "JCT-ABIL",
+              "pipeline_id": "ETX-NTX",
+              "design_capacity_dth": 1400000,
+              "downstream_point_ids": [
+                "DP-DFW-LDC",
+                "JCT-DFWS"
+              ],
+              "operating_capacity_dth": 1400000
+            }
+          ],
+          "pipeline_id": "ETX-NTX",
+          "topology_rule": "corridor_seq increases downstream; a point is downstream when its sequence is at or beyond the segment end",
+          "is_downstream_of": true,
+          "segments_traversed": null
+        }
+      },
+      "citation": null,
+      "skill_used": "shipper-communication@1.0",
+      "created_at": "2026-08-05T16:07:15.426871+00:00",
+      "run_started_at": "2026-08-05T16:06:45.422+00:00"
+    },
+    {
+      "id": 452,
+      "run_id": "33707d1c-c321-4314-b9e0-feb13ae2c178",
+      "workflow_id": "c6f9fec9-88ae-42bd-b46f-9f0ac95ab3ac",
+      "seq": 13,
+      "agent_name": "communications",
+      "event_type": "analysis_summary",
+      "summary": "Confirmed: LSPP holds 40,000 Dth storage rights at RP-BETH (CTR-LSPP-FT1), and RP-BETH is downstream of the constrained SEG-2 — so LSPP's own storage is a physically valid option to discuss.",
+      "detail": null,
+      "tool_name": null,
+      "tool_input": null,
+      "tool_output": null,
+      "citation": null,
+      "skill_used": "shipper-communication@1.0",
+      "created_at": "2026-08-05T16:07:46.701814+00:00",
+      "run_started_at": "2026-08-05T16:06:45.422+00:00"
+    },
+    {
+      "id": 453,
+      "run_id": "33707d1c-c321-4314-b9e0-feb13ae2c178",
+      "workflow_id": "c6f9fec9-88ae-42bd-b46f-9f0ac95ab3ac",
+      "seq": 14,
+      "agent_name": "communications",
+      "event_type": "tool_call",
+      "summary": "communications called draft_ebb_notice.",
+      "detail": null,
+      "tool_name": "draft_ebb_notice",
+      "tool_input": {
+        "stage": "Stage 2",
+        "headline": "Proposed Operational Flow Order — SEG-2 Stage 2 Constraint",
+        "body_text": "This is a proposed Operational Flow Order (OFO) for ETX-NTX Segment SEG-2 (Midland Junction to Abilene Junction), effective upon posting. Cause: SEG-2 is scheduled at its derated operating capacity with zero available transportation capacity (820,000 Dth scheduled against 820,000 Dth operating capacity), and projected run-day imbalances indicate uncured over-take risk on the segment. Derated capacity: 820,000 Dth. Stage: Stage 2. Tolerance: 5% of scheduled quantity (GT&C §52.3 synthetic). Imbalance basis: projected gas-day total (run-rate extrapolation) versus scheduled quantity. Synthetic tariff rate: $25.00/Dth (2,500 cents/Dth) on imbalance in excess of tolerance (GT&C §52.3 synthetic). This is projected potential exposure, not an assessed penalty or commodity market price. Actionable cycle: ID3, deadline 2026-08-04 19:00 CT. Shippers with projected imbalances exceeding the Stage 2 tolerance on SEG-2 should review corrective options ahead of this deadline to manage potential exposure under GT&C §52.3 (synthetic).",
+        "rationale": "This notice is proposed and staged pending approval; it is not posted and not yet in effect. It reflects Stage 2 terms per GT&C §52.3 (synthetic) and the SEG-2 zero-available-capacity condition (820,000 Dth scheduled vs 820,000 Dth operating capacity) evidenced by the compliance assessment for gas day 2026-08-04. No shipper names or shipper-specific figures are included, consistent with EBB notice requirements.",
+        "notice_type": "ofo",
+        "pipeline_id": "ETX-NTX",
+        "derate_to_dth": 820000,
+        "tolerance_pct": 5,
+        "affected_segment": "SEG-2",
+        "penalty_rate_cents_dth": 2500
+      },
+      "tool_output": null,
+      "citation": null,
+      "skill_used": "shipper-communication@1.0",
+      "created_at": "2026-08-05T16:07:46.807546+00:00",
+      "run_started_at": "2026-08-05T16:06:45.422+00:00"
+    },
+    {
+      "id": 454,
+      "run_id": "33707d1c-c321-4314-b9e0-feb13ae2c178",
+      "workflow_id": "c6f9fec9-88ae-42bd-b46f-9f0ac95ab3ac",
+      "seq": 15,
+      "agent_name": "communications",
+      "event_type": "tool_result",
+      "summary": "draft_ebb_notice completed successfully.",
+      "detail": null,
+      "tool_name": "draft_ebb_notice",
+      "tool_input": null,
+      "tool_output": {
+        "ok": true,
+        "data": {
+          "status": "pending",
+          "effective": "upon approval and posting",
+          "notice_id": "bfa575fa-ee86-48f1-8f83-f3f48c51e4dc",
+          "pending_action_id": "bebb2019-7651-4f02-8f24-df76404d5c1d"
+        }
+      },
+      "citation": null,
+      "skill_used": "shipper-communication@1.0",
+      "created_at": "2026-08-05T16:07:46.976793+00:00",
+      "run_started_at": "2026-08-05T16:06:45.422+00:00"
+    },
+    {
+      "id": 455,
+      "run_id": "33707d1c-c321-4314-b9e0-feb13ae2c178",
+      "workflow_id": "c6f9fec9-88ae-42bd-b46f-9f0ac95ab3ac",
+      "seq": 16,
+      "agent_name": "communications",
+      "event_type": "tool_call",
+      "summary": "communications called draft_shipper_message.",
+      "detail": null,
+      "tool_name": "draft_shipper_message",
+      "tool_input": {
+        "rationale": "Batched shipper notifications for the two Stage 2 tolerance violators on SEG-2 (LSPP, ABCL) with exposure formulas per GT&C §52.3 (synthetic) and contract-backed/physically-valid cure options only, plus factual cut notices for the two allocation-cut shippers (CEMK, SABT) per the executed apply_allocation record under GT&C §12.6 (synthetic). NTGU is compliant and excluded. All figures trace directly to the compliance assessment and the trusted allocation record; no figures were computed or altered by this agent.",
+        "recipients": [
+          {
+            "body": "This message concerns your position on ETX-NTX Segment SEG-2 for gas day 2026-08-04. Scheduled quantity: 250,000 Dth. Projected quantity (run-rate extrapolation over 6 measured hours): 287,500 Dth. Imbalance: +37,500 Dth (+15.0%). Stage 2 tolerance: 5% (12,500 Dth). Excess over tolerance: 25,000 Dth. Exposure formula: 25,000 Dth x $25.00/Dth x 1 day = $625,000.00 (GT&C §52.3 synthetic). The current open cycle is ID3, deadline 2026-08-04 19:00 CT. Your contract CTR-LSPP-FT1 shows storage rights of 40,000 Dth at RP-BETH, which is downstream of SEG-2; you may wish to consider whether your storage rights offer a cure path, alongside any other contract-backed options available to you, ahead of the deadline. This is informational; the decision on how to manage your position is yours.",
+            "subject": "SEG-2 Stage 2 Imbalance — Projected 25,000 Dth Excess, $625,000.00 Exposure",
+            "shipper_id": "LSPP",
+            "evidence_refs": [
+              "assess_flow_order_compliance:LSPP:scheduled_dth=250000",
+              "assess_flow_order_compliance:LSPP:projected_dth=287500",
+              "assess_flow_order_compliance:LSPP:excess_dth=25000",
+              "assess_flow_order_compliance:LSPP:exposure_cents=62500000",
+              "GT&C §52.3 (synthetic)",
+              "get_contract:CTR-LSPP-FT1:storage_rights_dth=40000,storage_point=RP-BETH",
+              "get_open_cycles:CYC-ID3:deadline_ct_display=2026-08-04 19:00 CT"
+            ]
+          },
+          {
+            "body": "This message concerns your position on ETX-NTX Segment SEG-2 for gas day 2026-08-04. Scheduled quantity: 300,000 Dth. Projected quantity (run-rate extrapolation over 6 measured hours): 321,000 Dth. Imbalance: +21,000 Dth (+7.0%). Stage 2 tolerance: 5% (15,000 Dth). Excess over tolerance: 6,000 Dth. Projected potential exposure formula: 6,000 Dth x $25.00/Dth x 1 day = $150,000.00 (GT&C §52.3 synthetic). The current open cycle is ID3, deadline 2026-08-04 19:00 CT. SEG-2 has zero available transportation capacity (820,000 Dth scheduled against 820,000 Dth operating capacity), so any cure path must not rely on increasing supply through SEG-2. Options physically available to you ahead of the deadline include reducing takes at your delivery point(s) or self-supplying downstream of the constraint. This is informational, not an assessed penalty or market-price recommendation; the decision on how to manage your position is yours.",
+            "subject": "SEG-2 Stage 2 Imbalance — Projected 6,000 Dth Excess, $150,000.00 Exposure",
+            "shipper_id": "ABCL",
+            "evidence_refs": [
+              "assess_flow_order_compliance:ABCL:scheduled_dth=300000",
+              "assess_flow_order_compliance:ABCL:projected_dth=321000",
+              "assess_flow_order_compliance:ABCL:excess_dth=6000",
+              "assess_flow_order_compliance:ABCL:exposure_cents=15000000",
+              "GT&C §52.3 (synthetic)",
+              "get_open_cycles:CYC-ID3:deadline_ct_display=2026-08-04 19:00 CT",
+              "system_impact:headroom_dth=0"
+            ]
+          },
+          {
+            "body": "This message concerns the executed allocation on ETX-NTX Segment SEG-2 for gas day 2026-08-04, nomination NOM-TIMELY-CEMK. A cut of 48,000 Dth was applied, reducing your post-recut scheduled quantity to 54,000 Dth. Reason: Tier 3 prorated to available capacity at factor 0.3600, applied under GT&C §12.6 (synthetic) as segment capacity was derated to 820,000 Dth. This cut reflects the current cycle's proration only. A later cycle with restored or additional available capacity on SEG-2 could allow rescheduling of some or all of the cut volume, subject to timely renomination and then-current tariff proration rules.",
+            "subject": "SEG-2 Allocation Notice — Cut Applied, GT&C §12.6",
+            "shipper_id": "CEMK",
+            "evidence_refs": [
+              "apply_allocation:a9c564ba-e4ab-4bbc-90ba-cbfc2f96657b:NOM-TIMELY-CEMK:cut_dth=48000,scheduled_dth=54000",
+              "apply_allocation:proration_factor_str=0.3600",
+              "GT&C §12.6 (synthetic)"
+            ]
+          },
+          {
+            "body": "This message concerns the executed allocation on ETX-NTX Segment SEG-2 for gas day 2026-08-04, nomination NOM-TIMELY-SABT. A cut of 32,000 Dth was applied, reducing your post-recut scheduled quantity to 36,000 Dth. Reason: Tier 3 prorated to available capacity at factor 0.3600, applied under GT&C §12.6 (synthetic) as segment capacity was derated to 820,000 Dth. This cut reflects the current cycle's proration only. A later cycle with restored or additional available capacity on SEG-2 could allow rescheduling of some or all of the cut volume, subject to timely renomination and then-current tariff proration rules.",
+            "subject": "SEG-2 Allocation Notice — Cut Applied, GT&C §12.6",
+            "shipper_id": "SABT",
+            "evidence_refs": [
+              "apply_allocation:a9c564ba-e4ab-4bbc-90ba-cbfc2f96657b:NOM-TIMELY-SABT:cut_dth=32000,scheduled_dth=36000",
+              "apply_allocation:proration_factor_str=0.3600",
+              "GT&C §12.6 (synthetic)"
+            ]
+          }
+        ],
+        "dollar_impact_cents": 77500000
+      },
+      "tool_output": null,
+      "citation": null,
+      "skill_used": "shipper-communication@1.0",
+      "created_at": "2026-08-05T16:07:47.043299+00:00",
+      "run_started_at": "2026-08-05T16:06:45.422+00:00"
+    },
+    {
+      "id": 456,
+      "run_id": "33707d1c-c321-4314-b9e0-feb13ae2c178",
+      "workflow_id": "c6f9fec9-88ae-42bd-b46f-9f0ac95ab3ac",
+      "seq": 17,
+      "agent_name": "communications",
+      "event_type": "tool_result",
+      "summary": "draft_shipper_message completed successfully.",
+      "detail": null,
+      "tool_name": "draft_shipper_message",
+      "tool_input": null,
+      "tool_output": {
+        "ok": true,
+        "data": {
+          "status": "pending",
+          "recipient_count": 4,
+          "pending_action_id": "2ee47d70-ff22-4e7c-bd89-ff698eb7be74"
+        }
+      },
+      "citation": null,
+      "skill_used": "shipper-communication@1.0",
+      "created_at": "2026-08-05T16:07:47.186217+00:00",
+      "run_started_at": "2026-08-05T16:06:45.422+00:00"
+    },
+    {
+      "id": 457,
+      "run_id": "33707d1c-c321-4314-b9e0-feb13ae2c178",
+      "workflow_id": "c6f9fec9-88ae-42bd-b46f-9f0ac95ab3ac",
+      "seq": 18,
+      "agent_name": "supervisor",
+      "event_type": "decision",
+      "summary": "Human approved and executed the pending action.",
+      "detail": {
+        "decision": "approve",
+        "decided_by": "control-room-scheduler",
+        "action_type": "send_shipper_message",
+        "pending_action_id": "2ee47d70-ff22-4e7c-bd89-ff698eb7be74"
+      },
+      "tool_name": null,
+      "tool_input": null,
+      "tool_output": null,
+      "citation": null,
+      "skill_used": null,
+      "created_at": "2026-08-05T16:08:50.576209+00:00",
+      "run_started_at": "2026-08-05T16:06:45.422+00:00"
+    },
+    {
+      "id": 458,
+      "run_id": "33707d1c-c321-4314-b9e0-feb13ae2c178",
+      "workflow_id": "c6f9fec9-88ae-42bd-b46f-9f0ac95ab3ac",
+      "seq": 19,
+      "agent_name": "supervisor",
+      "event_type": "decision",
+      "summary": "Human approved and executed the pending action.",
+      "detail": {
+        "decision": "approve",
+        "decided_by": "control-room-scheduler",
+        "action_type": "post_ebb_notice",
+        "pending_action_id": "bebb2019-7651-4f02-8f24-df76404d5c1d"
+      },
+      "tool_name": null,
+      "tool_input": null,
+      "tool_output": null,
+      "citation": null,
+      "skill_used": null,
+      "created_at": "2026-08-05T16:08:57.30488+00:00",
+      "run_started_at": "2026-08-05T16:06:45.422+00:00"
+    }
+  ]
+}
